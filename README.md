@@ -7,10 +7,12 @@
 
 Linux: [![Build Status](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_apis/build/status/Ginger%20Linux%20Build?branchName=master)](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_build/latest?definitionId=7?branchName=master) Windows: [![Build Status](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_apis/build/status/Ginger%20Windows%20Build?branchName=master)](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_build/latest?definitionId=6?branchName=master) Mac: [![Build Status](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_apis/build/status/Ginger%20Mac%20Build?branchName=master)](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_build/latest?definitionId=11&branchName=master)
 
+
+# WorkFlolws:
+[![CodeQL](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml)
+
 Ginger is an Automation IDE, Drag & Drop automation, Can be used by users with or without coding skills, open platform with plugin capabilities.
 
-
-[![CodeQL](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml)
 
 
 - ### [Ginger Website](https://ginger.amdocs.com/)
