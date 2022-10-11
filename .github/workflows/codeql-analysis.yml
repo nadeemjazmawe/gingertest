@@ -71,6 +71,9 @@ jobs:
     #   ./location_of_script_within_repo/buildscript.sh
 
     - name: Perform CodeQL Analysis
+      if: matrix.language == 'javascript' ||  matrix.language == 'python'
+
+    
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
