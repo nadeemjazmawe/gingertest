@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Ginger.Plugin</RootNamespace>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Platform\Web\Elements\IButton.cs~RF198dba9.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="HelpProj.shfbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GingerPluginCore\GingerPluginCore.csproj" />
+  </ItemGroup>
+
+</Project>

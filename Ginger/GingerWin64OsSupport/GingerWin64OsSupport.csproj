@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.31.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="IEDriverServer.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <GeckoDriverPlatform>win64</GeckoDriverPlatform>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <!--<PublishGeckoDriver>true</PublishGeckoDriver>-->
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,679 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	  <enableDefaultPageItems>false</enableDefaultPageItems>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <CodeAnalysisRuleSet>GingerCore.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <CodeAnalysisRuleSet>GingerCore.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ACL_Data_Contract">
+      <HintPath>DLLs\ACL_Data_Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="AlmDataContractsStd">
+      <HintPath>..\GingerCoreNET\DLLS\AlmDataContractsStd.dll</HintPath>
+    </Reference>
+    <Reference Include="ALMRepository, Version=8.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLLs\ALMRepository.dll</HintPath>
+    </Reference>
+    <Reference Include="ALMRestClient, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>DLLs\ALMRestClient.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ALMRestClientStd">
+      <HintPath>..\GingerCoreNET\DLLS\ALMRestClientStd.dll</HintPath>
+    </Reference>
+    <Reference Include="ALM_Common">
+      <HintPath>..\GingerCoreNET\DLLS\ALM_Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.TDAPIOLELib">
+      <HintPath>DLLs\Interop.TDAPIOLELib.dll</HintPath>
+    </Reference>
+    <Reference Include="JiraRepositoryStd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GingerCoreNET\DLLS\JiraRepositoryStd.dll</HintPath>
+    </Reference>
+    <Reference Include="LibGit2Sharp, Version=0.24.0.0, Culture=neutral, PublicKeyToken=7cbde695407f0333, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL's\LibGit2Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml">
+      <HintPath>..\GingerCoreNET\DLLS\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Octane_Repository">
+      <HintPath>DLLs\Octane_Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="Open3270, Version=1.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ginger\DLLs\Open3270.dll</HintPath>
+    </Reference>
+    <Reference Include="QCRestClientStd">
+      <HintPath>..\GingerCoreNET\DLLS\QCRestClientStd.dll</HintPath>
+    </Reference>
+    <Reference Include="QTestAPIStd">
+      <HintPath>..\GingerCoreNET\DLLS\QTestAPIStd.dll</HintPath>
+    </Reference>
+    <Reference Include="RQMExport, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLLs\RQMExport.dll</HintPath>
+    </Reference>
+    <Reference Include="RQM_Repository, Version=7.7.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLLs\RQM_Repository.dll</HintPath>
+    </Reference>
+    <Reference Include="SikuliStandardNet">
+      <HintPath>..\GingerCoreNET\DLLS\SikuliStandardNet.dll</HintPath>
+    </Reference>
+    <Reference Include="ZephyrEntStdSDK">
+      <HintPath>..\..\..\..\..\OneDrive - AMDOCS\Backup Folders\Desktop\project dll\ZephyrEntStdSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Zepyhr_Ent_Repository_Std">
+      <HintPath>..\..\..\..\..\OneDrive - AMDOCS\Backup Folders\Desktop\project dll\Zepyhr_Ent_Repository_Std.dll</HintPath>
+    </Reference>
+    <Reference Update="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Speech" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Actions\ScreenCapture\LocatorImageCaptureWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Actions\ScreenCapture\ScreenCaptureWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Actions\UIAutomation\ActionHelperMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Actions\UIAutomation\ActionHelper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Actions\UIAutomation\UIA_ActionRecorder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DragDrop\VisualDrag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Drivers\ConsoleDriverLib\ConsoleDriverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Drivers\ConsoleDriverLib\ConsoleNewActionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Drivers\InternalBrowserLib\CreateNewActionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Drivers\InternalBrowserLib\InternalBrowserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Drivers\InternalBrowserLib\WebBrowserPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Drivers\MainFrame\MainFrameDriverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Drivers\WebServicesDriverLib\WebServicesDriverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GeneralLib\GenericWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GeneralLib\ComboBoxWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GeneralLib\InputBoxWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UCHtmlViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ucTextDicResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\XMLViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\ActSikuli.cs" />
+    <Compile Include="Actions\RobotFramework\ActRobot.cs" />
+    <Compile Include="Actions\RobotFramework\RobotTestCase.cs" />
+    <Compile Include="Actions\RobotFramework\GingerParam.cs" />
+    <Compile Include="Actions\Common\ActMedia.cs" />
+    <Compile Include="Actions\Common\ActBattery.cs" />
+    <Compile Include="Actions\Common\ActPhone.cs" />
+    <Compile Include="Actions\Common\ActDevice.cs" />
+    <Compile Include="Actions\ActDemoPage.cs" />
+    <Compile Include="Actions\Common\ElementConfigControl.cs" />
+    <Compile Include="Actions\JSON\ActJSONTagValidation.cs" />
+    <Compile Include="Actions\ActImage.cs" />
+    <Compile Include="Actions\ActLowLevelClicks.cs" />
+    <Compile Include="Actions\ActCreatePDFChart.cs" />
+    <Compile Include="Actions\ActActivateRow.cs" />
+    <Compile Include="Actions\ActGetMsgboxText.cs" />
+    <Compile Include="Actions\ActConsoleCommand.cs" />
+    <Compile Include="Actions\ActFunction.cs" />
+    <Compile Include="Actions\ActASCFControl.cs" />
+    <Compile Include="Actions\ActLaunchJavaWSApplication.cs" />
+    <Compile Include="Actions\ActGenerateFileFromTemplate.cs" />
+    <Compile Include="Actions\ActionFlowControl.cs" />
+    <Compile Include="Actions\ActPBControl.cs" />
+    <Compile Include="Actions\ActCompareImgs.cs" />
+    <Compile Include="Actions\ActSendKeys.cs" />
+    <Compile Include="Actions\ActSetConfig.cs" />
+    <Compile Include="Actions\ActMenuItem.cs" />
+    <Compile Include="Actions\ActTextSpeech.cs" />
+    <Compile Include="Actions\ActWindow.cs" />
+    <Compile Include="Actions\Common\ActDeviceButton.cs" />
+    <Compile Include="Actions\ASCF\ActASCFBrowserElement.cs" />
+    <Compile Include="Actions\Java\ActJavaElement.cs" />
+    <Compile Include="Actions\Java\ActJavaEXE.cs" />
+    <Compile Include="Actions\ActTableElement.cs" />
+    <Compile Include="Actions\MainFrame\ActMainframeGetDetails.cs" />
+    <Compile Include="Actions\MainFrame\ActMainframeSendKey.cs" />
+    <Compile Include="Actions\MainFrame\ActMainframeSetText.cs" />
+    <Compile Include="Actions\ScreenCapture\LocatorImageCaptureWindow.xaml.cs">
+      <DependentUpon>LocatorImageCaptureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\ScreenCapture\SnippingTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actions\ScreenCapture\SnippingTool.Designer.cs" />
+    <Compile Include="Actions\UIAutomation\UIAElementInfo.cs" />
+    <Compile Include="Actions\Windows\ActWindowsControl.cs" />
+    <Compile Include="Actions\ScreenCapture\ScreenCaptureWindow.xaml.cs">
+      <DependentUpon>ScreenCaptureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\UIAutomation\ActionHelperMenu.xaml.cs">
+      <DependentUpon>ActionHelperMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\UIAutomation\ActionHelper.xaml.cs">
+      <DependentUpon>ActionHelper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\UIAutomation\ActUIASwitchWindow.cs" />
+    <Compile Include="Actions\UIAutomation\ActUIAGrid.cs" />
+    <Compile Include="Actions\UIAutomation\ActUIALabel.cs" />
+    <Compile Include="Actions\UIAutomation\ActUIAClickOnPoint.cs" />
+    <Compile Include="Actions\UIAutomation\ActUIAImage.cs" />
+    <Compile Include="Actions\UIAutomation\UIAComWrapperHelper.cs" />
+    <Compile Include="Actions\UIAutomation\ActUIAButton.cs" />
+    <Compile Include="Actions\UIAutomation\ActUIATextBox.cs" />
+    <Compile Include="Actions\UIAutomation\WinAPIAutomation.cs" />
+    <Compile Include="Actions\UIAutomation\UIA_ActionRecorder.xaml.cs">
+      <DependentUpon>UIA_ActionRecorder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\XML\ActXMLTagValidation.cs" />
+    <Compile Include="Actions\XML\ActXMLProcessing.cs" />
+    <Compile Include="Actions\XML\XMLProcessor.cs" />
+    <Compile Include="ActOcr.cs" />
+    <Compile Include="ALM\QtestCore.cs" />
+    <Compile Include="ALM\Qtest\ImportFromQtest.cs" />
+    <Compile Include="ALM\QCRestAPICore.cs" />
+    <Compile Include="ALM\QCRestAPI\ExportToQCRestAPI.cs" />
+    <Compile Include="ALM\QCRestAPI\ImportFromQCRest.cs" />
+    <Compile Include="ALM\QCRestAPI\QCRestAPIConnect.cs" />
+    <Compile Include="ALM\QC\ExportToQC.cs" />
+    <Compile Include="ALM\QCCore.cs" />
+    <Compile Include="ALM\QC\ImportFromQC.cs" />
+    <Compile Include="ALM\QC\QCConnect.cs" />
+    <Compile Include="ALM\Qtest\QtestTestRun.cs" />
+    <Compile Include="ALM\Qtest\QtestTestSuite.cs" />
+    <Compile Include="ALM\Qtest\QtestTest.cs" />
+    <Compile Include="ALM\Qtest\QtestTestParameter.cs" />
+    <Compile Include="ALM\Qtest\QtestTestStep.cs" />
+    <Compile Include="ALM\Qtest\QtestConnect.cs" />
+    <Compile Include="ALM\RallyCore.cs" />
+    <Compile Include="ALM\Rally\ImportFromRally.cs" />
+    <Compile Include="ALM\Rally\RallyConnect.cs" />
+    <Compile Include="ALM\Rally\RallyStep.cs" />
+    <Compile Include="ALM\Rally\RallyTestCase.cs" />
+    <Compile Include="ALM\Rally\RallyTestParameter.cs" />
+    <Compile Include="ALM\Rally\RallyTestPlan.cs" />
+    <Compile Include="ALM\RQMCore.cs" />
+    <Compile Include="ALM\RQM\ExportToRQM.cs" />
+    <Compile Include="ALM\RQM\ImportFromRQM.cs" />
+    <Compile Include="ALM\RQM\RQMTestSuiteResults.cs" />
+    <Compile Include="ALM\RQM\RQMTestSuiteExecutionRecord.cs" />
+    <Compile Include="ALM\RQM\RQMTestSuite.cs" />
+    <Compile Include="ALM\RQM\RQMTestParameter.cs" />
+    <Compile Include="ALM\RQM\RQMStep.cs" />
+    <Compile Include="ALM\RQM\RQMExecutionRecord.cs" />
+    <Compile Include="ALM\RQM\RQMTestScript.cs" />
+    <Compile Include="ALM\RQM\RQMTestCase.cs" />
+    <Compile Include="ALM\RQM\RQMFieldsMappingConfig.cs" />
+    <Compile Include="ALM\RQM\RQMTestPlan.cs" />
+    <Compile Include="ALM\RQM\RQMConnect.cs" />
+    <Compile Include="DataSource\DataSourceTableColumn.cs" />
+    <Compile Include="Common\Devices\DeviceConfig.cs" />
+    <Compile Include="Common\Devices\DeviceButton.cs" />
+    <Compile Include="Common\Devices\DeviceControllerConfig.cs" />
+    <Compile Include="Drivers\ASCF\ASCFBrowserElementInfo.cs" />
+    <Compile Include="Drivers\ASCF\ASCFControlInfo.cs" />
+    <Compile Include="Drivers\ASCF\ASCFElementInfo.cs" />
+    <Compile Include="Drivers\Common\ComboElementInfo.cs" />
+    <Compile Include="Drivers\Common\UIAutomationHelperBase.cs" />
+    <Compile Include="Drivers\Common\UIAutomationDriverBase.cs" />
+    <Compile Include="Drivers\Common\TableElementInfo.cs" />
+    <Compile Include="Common\Utility.cs" />
+    <Compile Include="Drivers\Common\UIElementOperationsHelper.cs" />
+    <Compile Include="Drivers\DriverWindowDispatcher.cs" />
+    <Compile Include="Drivers\InternalBrowserLib\DeviceEmulation.cs" />
+    <Compile Include="Drivers\InternalBrowserLib\WebBrowserPage.xaml.cs">
+      <DependentUpon>WebBrowserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\JavaDriverLib\JavaDriver.cs" />
+    <Compile Include="Drivers\JavaDriverLib\JavaElementInfo.cs" />
+    <Compile Include="Drivers\MainFrame\AttachedProperties.cs" />
+    <Compile Include="Drivers\MainFrame\MainFrameDriverWindow.xaml.cs">
+      <DependentUpon>MainFrameDriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\MainFrame\MainFrameDriver.cs" />
+    <Compile Include="Drivers\MainFrame\MainFrameUIHelper.cs" />
+    <Compile Include="Drivers\MainFrame\Terminal.cs" />
+    <Compile Include="Drivers\PBDriver\HTMLHelper.cs" />
+    <Compile Include="External\JsonExternalItemField.cs" />
+    <Compile Include="GeneralLib\BindingHandler.cs" />
+    <Compile Include="GeneralLib\ComboEnumItem.cs" />
+    <Compile Include="GeneralLib\ComboGroupedEnumItem.cs" />
+    <Compile Include="GeneralLib\ComboItem.cs" />
+    <Compile Include="GeneralLib\CommonLib.cs" />
+    <Compile Include="GeneralLib\JSONHelper.cs" />
+    <Compile Include="Extensions\Screenshot.cs" />
+    <Compile Include="DataSource\AccessDataSource.cs" />
+    <Compile Include="GeneralLib\ComboBoxWindow.xaml.cs">
+      <DependentUpon>ComboBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralLib\MarshalExtension.cs" />
+    <Compile Include="GeneralLib\ProcessExtension.cs" />
+    <Compile Include="GingerOCR\GingerOcrOperations.cs" />
+    <Compile Include="Helpers\HTMLHelper.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SourceControl\SVNSourceControl.cs" />
+    <Compile Include="UserControls\UCHtmlViewer.xaml.cs">
+      <DependentUpon>UCHtmlViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucTextDicResource.xaml.cs">
+      <DependentUpon>ucTextDicResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Animations\Animations.cs" />
+    <Compile Include="DragDrop\VisualDrag.xaml.cs">
+      <DependentUpon>VisualDrag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\ConsoleDriverLib\ConsoleNewActionPage.xaml.cs">
+      <DependentUpon>ConsoleNewActionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\ConsoleDriverLib\UnixShellDriver.cs" />
+    <Compile Include="Drivers\ConsoleDriverLib\ConsoleDriverBase.cs" />
+    <Compile Include="Drivers\ConsoleDriverLib\ConsoleDriverWindow.xaml.cs">
+      <DependentUpon>ConsoleDriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\ConsoleDriverLib\UnixServerSimulator.cs" />
+    <Compile Include="Drivers\ConsoleDriverLib\DOSConsoleDriver.cs" />
+    <Compile Include="Drivers\InternalBrowserLib\CreateNewActionPage.xaml.cs">
+      <DependentUpon>CreateNewActionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\PBDriver\PBDriver.cs" />
+    <Compile Include="Drivers\ScriptDriverLib\ScriptDriverBase.cs" />
+    <Compile Include="Drivers\ScriptDriverLib\VBScriptDriver.cs" />
+    <Compile Include="Drivers\WebServicesDriverLib\WebServicesDriverWindow.xaml.cs">
+      <DependentUpon>WebServicesDriverWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\WindowsLib\WindowsDriver.cs" />
+    <Compile Include="GeneralLib\General.cs" />
+    <Compile Include="GeneralLib\GenericWindow.xaml.cs">
+      <DependentUpon>GenericWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralLib\RegistryFunctions.cs" />
+    <Compile Include="GeneralLib\SMS.cs" />
+    <Compile Include="GeneralLib\InputBoxWindow.xaml.cs">
+      <DependentUpon>InputBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\XMLViewer.xaml.cs">
+      <DependentUpon>XMLViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\RepositorySerializer.cs" />
+    <Compile Include="Drivers\ASCF\ASCFDriver.cs" />
+    <Compile Include="Drivers\InternalBrowserLib\InternalBrowserWindow.xaml.cs">
+      <DependentUpon>InternalBrowserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\InternalBrowserLib\InternalBrowser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Repository\RepositoryItem.cs" />
+    <Compile Include="XPathParser\IXpathBuilder.cs" />
+    <Compile Include="XPathParser\XPathAxis.cs" />
+    <Compile Include="XPathParser\XPathOperator.cs" />
+    <Compile Include="XPathParser\XPathParser.cs" />
+    <Compile Include="XPathParser\XPathParserException.cs" />
+    <Compile Include="XPathParser\XPathScanner.cs" />
+    <Compile Include="XPathParser\XPathStringBuilder.cs" />
+    <Compile Include="XPathParser\XPathTreeBuilder.cs" />
+    <None Include="tessdata\eng.traineddata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Resource Include="tessdata\pdf.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQMSettings.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\Export_Settings.xml" />
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\QM\fa1qm1\executionRecord.xml" />
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\QM\fa1qm1\ExecutionResult.xml" />
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\QM\fa1qm1\TestCase.xml" />
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\QM\fa1qm1\TestPlan.xml" />
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\QM\fa1qm1\TestScript.xml" />
+    <Resource Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Import\RQM_ImportConfigs_Template.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <None Include="Resources\%40EmptyStart_16x16.gif" />
+    <None Include="Resources\%40Star_16x16.gif" />
+    <None Include="Resources\%40StarGray_16x16.gif" />
+    <None Include="Resources\%40Star_16x16.png" />
+    <None Include="Resources\%40StarGray_16x16.png" />
+    <None Include="Resources\%40Group_16x16.png" />
+    <None Include="Drivers\JavaDriverLib\GingerJavaAgent\bin\GingerjarPublish.bat" />
+    <None Include="Resources\SoapUI.bmp" />
+    <None Include="Drivers\JavaDriverLib\GingerJavaAgent\.settings\org.eclipse.jdt.core.prefs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Actions\REST\" />
+    <Folder Include="Actions\WebServices\" />
+    <Folder Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\CCM\fa1qm1\" />
+    <Folder Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Export\RM\" />
+    <Folder Include="ALM\RQM\RQMServerConfigurationsPackage\RQM_Fields\" />
+    <Folder Include="Drivers\JavaDriverLib\GingerJavaAgent\bin\com\amdocs\ginger\ASCFPack\" />
+    <Folder Include="Environments\" />
+    <Folder Include="Plugins\Jenkins\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Const.png" />
+    <Resource Include="Resources\DataBase.png" />
+    <Resource Include="Resources\List.png" />
+    <Resource Include="Resources\Random.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{B691E011-1797-432E-907A-4D8C69339129}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CDO">
+      <Guid>{CD000000-8B95-11D1-82DB-00C04FB1625D}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\%40MobileDevice_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Drivers\JavaDriverLib\GingerAgentBuild.xml" />
+    <Resource Include="Drivers\JavaDriverLib\GingerJavaAgent\build.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <None Include="Resources\%40edit_16x16.png" />
+    <None Include="Resources\%40executionres_16x16.png" />
+    <None Include="Resources\%40image_16x16.png" />
+    <None Include="Resources\%40label_16x16.png" />
+    <None Include="Resources\%40list_16x16.png" />
+    <None Include="Resources\%40menuitem_16x16.png" />
+    <None Include="Resources\%40menubar_16x16.png" />
+    <None Include="Resources\%40radiobutton_16x16.png" />
+    <None Include="Resources\%40textbox_16x16.png" />
+    <None Include="Resources\%40treeview_16x16.png" />
+    <None Include="Resources\%40window_16x16.png" />
+    <None Include="Resources\%40dropdownlist_16x16.png" />
+    <None Include="Resources\%40mobiledevice_16x16.png" />
+    <None Include="Resources\%40visualtesting_16x16.png" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\%40PopUpHandler_16x16.png" />
+    <None Include="Resources\%40Handler_16x16.png" />
+    <None Include="Resources\%40Activities_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GingerAutoPilot\GingerAutoPilot.csproj" />
+    <ProjectReference Include="..\GingerCoreCommon\GingerCoreCommon.csproj" />
+    <ProjectReference Include="..\GingerCoreNET\GingerCoreNET.csproj" />
+    <ProjectReference Include="..\GingerHelper\GingerHelper.csproj" />
+    <ProjectReference Include="..\GingerPluginCore\GingerPluginCore.csproj" />
+    <ProjectReference Include="..\GingerPlugIns\GingerPlugIns.csproj" />
+    <ProjectReference Include="..\GingerUtils\GingerUtils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper">
+      <Version>9.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="BouncyCastle.NetCore" Version="1.8.10" />
+    <PackageReference Include="CassandraCSharpDriver">
+      <Version>3.10.0</Version>
+    </PackageReference>
+    <PackageReference Include="Castle.Core">
+      <Version>4.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="CouchbaseNetClient">
+      <Version>2.7.11</Version>
+    </PackageReference>
+    <PackageReference Include="DocumentFormat.OpenXml">
+      <Version>2.16.0</Version>
+    </PackageReference>
+    <PackageReference Include="EPPlus">
+      <Version>6.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Freeware.Pdf2Png">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Google.Protobuf">
+      <Version>3.15.0</Version>
+    </PackageReference>
+    <PackageReference Include="HtmlAgilityPack">
+      <Version>1.11.21</Version>
+    </PackageReference>
+    <PackageReference Include="LibGit2Sharp.NativeBinaries">
+      <Version>2.0.278</Version>
+    </PackageReference>
+    <PackageReference Include="log4net">
+      <Version>2.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="lz4net">
+      <Version>1.0.15.93</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp">
+      <Version>4.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging">
+      <Version>3.1.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Platforms">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MongoDB.Driver">
+      <Version>2.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="Mono.Posix">
+      <Version>7.1.0-final.1.21458.1</Version>
+    </PackageReference>
+    <PackageReference Include="MySql.Data">
+      <Version>8.0.16</Version>
+    </PackageReference>
+    <PackageReference Include="NETStandard.Library">
+      <Version>2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Npgsql">
+      <Version>4.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="PdfSharpCore.Charting" Version="1.3.16" />
+    <PackageReference Include="RestSharp">
+      <Version>108.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="SharpSvn" Version="1.14001.156" />
+    <PackageReference Include="SSH.NET">
+      <Version>2020.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections.Concurrent">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Drawing.Common">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Globalization">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.Packaging">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq.Dynamic.Core">
+      <Version>1.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq.Expressions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Management" Version="6.0.0" />
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Resources.Extensions">
+      <Version>4.7.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Algorithms">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Dataflow">
+      <Version>4.11.1</Version>
+    </PackageReference>
+    <PackageReference Include="Tabula">
+      <Version>0.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Tesseract">
+      <Version>4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.310801">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="UIAComWrapperNetstandard" Version="1.0.1">
+      <Aliases>UIAComWrapperNetstandard</Aliases>
+    </PackageReference>
+    <PackageReference Include="Zlib.Portable.Core" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Drivers\AppWindow.cs" />
+    <Compile Remove="Drivers\Common\ElementInfo.cs" />
+    <Compile Remove="Drivers\Common\ElementLocator.cs" />
+    <Compile Remove="Drivers\Common\IWindowExplorer.cs" />
+    <Compile Remove="GeneralLib\Email.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>

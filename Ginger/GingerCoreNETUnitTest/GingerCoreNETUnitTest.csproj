@@ -1,0 +1,803 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	  <IsPackable>false</IsPackable>
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Drivers\**" />
+    <Compile Remove="SolutionUpgrade\**" />
+    <Compile Remove="TestResources\Solutions\BasicSimple\SharedRepository\**" />
+    <EmbeddedResource Remove="Drivers\**" />
+    <EmbeddedResource Remove="SolutionUpgrade\**" />
+    <EmbeddedResource Remove="TestResources\Solutions\BasicSimple\SharedRepository\**" />
+    <None Remove="Drivers\**" />
+    <None Remove="SolutionUpgrade\**" />
+    <None Remove="TestResources\Solutions\BasicSimple\SharedRepository\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="TestResources\Files\APlusB.vbs" />
+    <None Remove="TestResources\Files\ScriptWithGingerOutput.vbs" />
+    <None Remove="TestResources\Files\ScriptWithGingerOutputIndexZero.vbs" />
+    <None Remove="TestResources\Files\ScriptWithoutOutput.vbs" />
+    <None Remove="TestResources\JSON\Request JSON.TXT" />
+    <None Remove="TestResources\Repository\Default Run Set.Ginger.RunSetConfig.xml" />
+    <None Remove="TestResources\Repository\dummyAction.xml" />
+    <None Remove="TestResources\Solutions\BasicSimple\DataSources\GingerDataSource.mdb" />
+    <None Remove="TestResources\Solutions\GlobalCrossSolution\DataSources\AccessDS.mdb" />
+    <None Remove="TestResources\XML\createPaymentRequest2.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TestResources\Files\APlusB.vbs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Files\ScriptWithGingerOutput.vbs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Files\ScriptWithGingerOutputIndexZero.vbs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Files\ScriptWithoutOutput.vbs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\JSON\Request JSON.TXT">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Repository\Default Run Set.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Repository\dummyAction.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\createPaymentRequest2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\BATCH_TEMPLATE.XML">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\book.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\calculator_soapui_project.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\stock.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\TargetFile.XML">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\TemplateVU.XML">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="GingerTestHelper" Version="2.0.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="3.7.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+    <PackageReference Include="System.Resources.Extensions" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TestResources\Conversion\" />
+    <Folder Include="TestResources\Solutions\EmailWebReport\HTMLReportConfigurations\HTMLReportTemplate\" />
+    <Folder Include="TestResources\Solutions\EmailWebReport\HTMLReportConfigurations\ReportTemplates\" />
+    <Folder Include="TestResources\Solutions\GlobalCrossSolution\Applications Models\Global Models Parameters\" />
+    <Folder Include="TestResources\Solutions\GlobalCrossSolution\RemoteServiceGrid\" />
+    <Folder Include="TestResources\Solutions\GlobalCrossSolution\RunSetConfigs\" />
+    <Folder Include="TestResources\Solutions\GlobalCrossSolution\SharedRepository\Actions\" />
+    <Folder Include="TestResources\Solutions\GlobalCrossSolution\SharedRepository\ActivitiesGroup\" />
+    <Folder Include="TestResources\Solutions\GlobalCrossSolution\SharedRepository\Activities\" />
+    <Folder Include="TestResources\Solutions\GlobalCrossSolution\SharedRepository\Variables\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GingerAutoPilot\GingerAutoPilot.csproj" />
+    <ProjectReference Include="..\GingerCoreNET\GingerCoreNET.csproj" />
+    <ProjectReference Include="..\GingerRuntime\GingerRuntime.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="TestResources\Solutions\BasicSimple\DataSources\GingerDataSource.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="TestResources\Solutions\GlobalCrossSolution\DataSources\AccessDS.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataSource\DataSourceTest.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Reports\NewHTMLReportTest.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestResources\CLI\CLI-CheckExecutionIDSet.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-Sealights_JSON.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-VirtualBF_VirtualRunsetAndRunner_OnlyName.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-VirtualBF_VirtualRunsetAndRunner.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-VirtualBF_ExistingRunsetRunner_OnlyName.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-VirtualBF_ExistingRunsetRunner.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLIDynamicJSON_Existing_ALM_Details.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLIDynamicJSON_Existing_StopRunnersOnFailure_StopOff.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLIDynamicJSON_Virtual_StopRunnersOnFailure_StopOn.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLIDynamicJSON_Existing_StopRunnersOnFailure_StopOn.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-OutputsPass_Virtual_AllCustomizedTypes.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-OutputsPass_Existing_AllCustomizedTypes.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-OutputsPass_Existing_RegularInputCustomized.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-OutputsPass_Existing_NotCustomized.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-CustomExistingRunset_OnlyIDs.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-CustomExistingRunset_OnlyNames.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-CustomExistingRunset.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-Default Run Set.Ginger.AutoRunConfigs.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-NotExisting_OnlyNames.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CLI\CLI-NotExisting.Ginger.AutoRunConfigs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Excel\ExcelFile.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Excel\ExportedDS.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Excel\LongDigitsTesting.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Excel\NamesWrite.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Files\BatchScriptWithArgs.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Files\BATReturnParam.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Files\VBSSum2Args.vbs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Files\textFileCopy.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Files\BASHWithArgs.sh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\Ginger.PluginPackage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\Ginger.PluginPackage.Services.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\GingerPluginCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\Microsoft.Win32.SystemEvents.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\Newtonsoft.Json.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\PluginDriverExample4.deps.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\PluginDriverExample4.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\PluginDriverExample4.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\PluginDriverExample4.runtimeconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\PluginDriverExample4\System.Reflection.DispatchProxy.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Drivers\Chrome\Linux\chromedriver">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Drivers\Chrome\Mac\chromedriver">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Drivers\Chrome\Windows\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Drivers\FireFox\Linux\geckodriver">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Drivers\FireFox\windows\geckodriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Ginger.PluginPackage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Ginger.PluginPackage.Services.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\GingerPluginCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\GingerPluginCore.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\GingerPluginPlatforms.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\GingerPluginPlatforms.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Microsoft.Win32.SystemEvents.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\Newtonsoft.Json.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\SeleniumPlugin.deps.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\SeleniumPlugin.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\SeleniumPlugin.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\SeleniumPlugin.runtimeconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\WebDriver.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Plugins\SeleniumPlugin\WebDriver.Support.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\Activity.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\CommandProcessorFiles\StartSeleniumDriver.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Excel\Names.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\JSON\sample.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PluginPackages\ExamplePlugin\Ginger.PluginPackage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PluginPackages\ExamplePlugin\PluginExample.GingerPlugin.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PluginPackages\GingerOfficePlugin\DocumentFormat.OpenXml.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PluginPackages\GingerOfficePlugin\Ginger.PluginPackage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PluginPackages\GingerOfficePlugin\GingerOfficePlugin.GingerPlugin.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PluginPackages\GingerOfficePlugin\GingerPluginCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PluginPackages\GingerOfficePlugin\System.IO.Packaging.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\1 Goto SCM URL\1 Goto App URL - httpcmitechint1\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\1 Goto SCM URL\1 Goto App URL - httpcmitechint1\ScreenShot_1_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\1 Goto SCM URL\Activity.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\2 Login\1 Enter value in UserName\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\2 Login\1 Enter value in UserName\ScreenShot_1_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\2 Login\2 Enter value in Password\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\2 Login\2 Enter value in Password\ScreenShot_2_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\2 Login\3 Submit Page - login\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\2 Login\3 Submit Page - login\ScreenShot_3_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\2 Login\Activity.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\3 Select Customer Management\1 Click Link Manage Customer\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\3 Select Customer Management\1 Click Link Manage Customer\ScreenShot_1_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\3 Select Customer Management\Activity.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\1 Click Link Create New\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\1 Click Link Create New\ScreenShot_1_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\2 Enter value in FirstName\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\2 Enter value in FirstName\ScreenShot_2_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\3 Enter value in LastName\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\3 Enter value in LastName\ScreenShot_3_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\4 Enter value in HomeAddress\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\4 Enter value in HomeAddress\ScreenShot_4_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\5 Enter value in EmailAddress\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\5 Enter value in EmailAddress\ScreenShot_5_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\6 Submit Page\Action.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\6 Submit Page\ScreenShot_6_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\4 Create new customer\Activity.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\AutomationTab_LastExecution\BusinessFlow.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\BusinessFlow.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\FailedAction.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Reports\PassedAction.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\DS_SkipWhereConditions_Flow.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\ActivityGroupFlow.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\SampleAPIModels\Create_User.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\SampleAPIModels\Delete_User.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\SampleAPIModels\GetQuote_DelayedStockQuoteSoap.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\SampleAPIModels\PhoneVerifySOAP_CheckPhoneNumber.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\SampleAPIModels\PhoneVerifySOAP_CheckPhoneNumbers.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\SampleAPIModels\Update_User.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Repository\Windows.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\Agents\Amdo CSP - Agent 1.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\BusinessFlows\MissingVariableUsedInMultipleActions.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\BusinessFlows\MissingVariableUsedOnlyInSetVariable.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\BusinessFlows\Business Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\BusinessFlows\Demo Flow 01.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\DataSources\GingerDataSource.Ginger.DataSource.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\DataSources\GingerDataSource.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\DataSources\LiteDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\Environments\Default.Ginger.Environment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\AnalyzerTestSolution\Ginger.Solution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Agents\Amdo CSP - Agent 1.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Applications Models\POM Models\FacebookSignUp.Ginger.ApplicationPOMModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\BusinessFlows\Business Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\DataSources\GingerDataSource.Ginger.DataSource.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\DataSources\LiteDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Environments\Default.Ginger.Environment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Ginger.Solution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Reports\TextFileDemo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\RunSetConfigs\Default Run Set.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Agents\Chrome-2.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Agents\Chrome.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Agents\IE.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Applications Models\API Models\CheckPhoneNumber_PhoneVerifySoap.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Applications Models\Global Models Parameters\AAA.Ginger.GlobalAppModelParameter.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\BusinessFlows\Calculator.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\BusinessFlows\Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\BusinessFlows\Flow_A.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\BusinessFlows\Flow_B.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\BusinessFlows\Flow_C.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\BusinessFlows\Flow_D.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\DataSources\LiteDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\DataSources\LiteDB.Ginger.DataSource.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Environments\Default.Ginger.Environment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Environments\Env1.Ginger.Environment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Environments\Env2.Ginger.Environment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\Ginger.Solution.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\RunSetConfigs\Calc_Test.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\RunSetConfigs\DataMappingTest.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\RunSetConfigs\Default Run Set.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\RunSetConfigs\MultiRunnersStopOnFailureTest.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\RunSetConfigs\Runset_DataPass.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\SharedRepository\Activities\Test Activity.Ginger.Activity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\CLI\SharedRepository\Activities\User Detail Activity.Ginger.Activity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\EmailWebReport\BusinessFlows\Jira Demo.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\EmailWebReport\Environments\Default.Ginger.Environment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\EmailWebReport\Ginger.Solution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\EmailWebReport\HTMLReportConfigurations\Default.Ginger.HTMLReportConfiguration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\EmailWebReport\RunSetConfigs\Default Run Set.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Agents\MyWebApp - Agent 1.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Agents\WebServiceAgnet.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Agents\WindowsAgent.Ginger.Agent.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Applications Models\API Models\Add a new pet to the store-JSON.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Applications Models\POM Models\Facebook\Facebook.Ginger.ApplicationPOMModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Applications Models\POM Models\SeleniumDemoValid.Ginger.ApplicationPOMModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\BusinessFlows\API-Create Pet.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\BusinessFlows\Facebook Login.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\BusinessFlows\Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\DataSources\AccessDS.Ginger.DataSource.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\DataSources\DefaultDataSource.Ginger.DataSource.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\DataSources\LiteDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Documents\02E202C7-BDB1-4C0A-B89A-8D401DB7C69F.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Documents\bankCode3.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Documents\Multiple Values.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Documents\Repository.xls">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Environments\Test.Ginger.Environment.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\Ginger.Solution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\SharedRepository\Actions\Browser Action.Ginger.Action.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\SharedRepository\Actions\UIElement Action.Ginger.Action.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\GlobalCrossSolution\SharedRepository\Activities\Activity 2.Ginger.Activity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\Agents\MyWindowsApp - Agent 1.Ginger.Agent.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\BusinessFlows\Check Variables.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\BusinessFlows\Create Contact.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\BusinessFlows\Create Customer.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\BusinessFlows\Provide.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\DataSources\DefaultDataSource.Ginger.DataSource.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\DataSources\LiteDB.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\Environments\Default.Ginger.Environment.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\Ginger.Solution.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\HTMLReportConfigurations\Default.Ginger.HTMLReportConfiguration.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\RunSetConfigs\Check Variables Run Set.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\OutputVariableOldSolution\RunSetConfigs\Default Run Set.Ginger.RunSetConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\ReportWebApp\ExecutionResults\LiteDbData.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\ReportWebApp\Ginger.Solution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\Agents\MyWindowsApp - Agent 1.Ginger.Agent.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\BusinessFlows\Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\BusinessFlows\Flow 2.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\Ginger.Solution.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\SharedRepository\Actions\Dummy Action.Ginger.Action.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\SharedRepository\ActivitiesGroup\Group.Ginger.ActivitiesGroup.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\SharedRepository\Activities\Activity 1.Ginger.Activity.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\RepositoryItemTest\SharedRepository\Variables\myString.Ginger.Variable.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\Variables\BusinessFlows\Business Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\Variables\Ginger.Solution.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\TextFiles\textFileOperations.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\TextFiles\textFileToCopy.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\UserProfiles\GingerUserProfile.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\VariableTest\Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\ActivityTest.Ginger.Activity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\Create_User.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\Delete_User.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\GetQuote_DelayedStockQuoteSoap.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\PhoneVerifySOAP_CheckPhoneNumber.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\PhoneVerifySOAP_CheckPhoneNumbers.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\Update_User.Ginger.ApplicationAPIModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\XmlDoc.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,669 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Misc\DataSourceTest.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Misc\DataBaseTest.cs" />
+    <Compile Include="Misc\ExpectedWithActual.cs" />
+    <Compile Include="Misc\GingersMultiRunTest.cs" />
+    <Compile Include="Misc\JSPayloadTest.cs" />
+    <Compile Include="Misc\NonDriverActionTest.cs" />
+    <Compile Include="Misc\OutputSimulation.cs" />
+    <Compile Include="Misc\QCTest.cs" />
+    <Compile Include="Misc\RepositoryXMLConverterTest.cs" />
+    <Compile Include="Misc\RespositorySerializer2Test.cs" />
+    <Compile Include="Misc\RESTTest.cs" />
+    <Compile Include="Misc\SourceControlUnitTest.cs" />
+    <Compile Include="Misc\OcrTest.cs" />
+    <Compile Include="Misc\UnixShellTest.cs" />
+    <Compile Include="Misc\UsedVariablesTest.cs" />
+    <Compile Include="Misc\ValueExpressionTest.cs" />
+    <Compile Include="Misc\XMLTagValidationTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Script\VBSDateTimeTests.cs" />
+    <Compile Include="Script\VBSNumericTests.cs" />
+    <Compile Include="Script\VBSStringTests.cs" />
+    <Compile Include="TestAssemblyInit.cs" />
+    <Compile Include="TestResources\IEBrowser\IEBrowserWindow.xaml.cs">
+      <DependentUpon>IEBrowserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITests\ActLaunchJavaWSApplicationTest.cs" />
+    <Compile Include="UITests\ActUIElementTest.cs" />
+    <Compile Include="UITests\ASCFDriverTest.cs" />
+    <Compile Include="UITests\IEBrowserWindowTest.cs" />
+    <Compile Include="UITests\JavaDriverTest.cs" />
+    <Compile Include="UITests\MiniBrowserWindow.xaml.cs">
+      <DependentUpon>MiniBrowserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UITests\PBDriverTest.cs" />
+    <Compile Include="UITests\PBDriverWidgetTest.cs" />
+    <Compile Include="UITests\UIAAutomationTest.cs" />
+    <Compile Include="UITests\VisualCompareTest.cs" />
+    <Compile Include="UITests\WebBrowserPageTest.cs" />
+    <Compile Include="UITests\WebDriverUnitTestCase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GingerTestHelper">
+      <Version>2.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="log4net">
+      <Version>2.0.14</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>2.2.10</Version>
+    </PackageReference>
+    <PackageReference Include="System.Resources.Extensions">
+      <Version>4.7.1</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.310801">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GingerAutoPilot\GingerAutoPilot.csproj" />
+    <ProjectReference Include="..\GingerCoreCommon\GingerCoreCommon.csproj" />
+    <ProjectReference Include="..\GingerCoreNET\GingerCoreNET.csproj" />
+    <ProjectReference Include="..\GingerCore\GingerCore.csproj" />
+    <ProjectReference Include="..\Ginger\Ginger.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestResources\AutoPilot\WSDLs\delayedstockquote.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\AutoPilot\XMLTemplates\bankCode.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Converter\CMI.Ginger.Environment.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Converter\IB1.Ginger.Agent.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Update="TestResources\ASCF\PBGCRM8.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Converter\IPDLSAM.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="TestResources\Database\GingerUnitTest.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Update="TestResources\DataSources\GingerDataSource.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="TestResources\HTML\HTMLControls.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\HTML\JSPayLoad.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\HTML\POMTestingPage.html" />
+    <Content Include="TestResources\HTML\SCMCusotmersIndex.HTML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\HTML\SimpleCalculator.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\HTML\VFIT.html" />
+    <Content Include="TestResources\HTML\VisualComapre1.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\HTML\VisualComapre2.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\IEBrowser\ScriptSnippests\ClickElement.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\IEBrowser\ScriptSnippests\GetAllVisibleElements.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\IEBrowser\ScriptSnippests\SetValue.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\JavaTestApp\EditorPaneTestApp.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\JavaTestApp\JavaTestApp.jar">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\JavaTestApp\Test App.jar">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\OCR\Capture-OCR-AllText.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\OCR\Capture-OCR.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\ScreenShot\Temp.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Solutions\BasicSimple\BusinessFlows\ActExcelInputValuesTest.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Solutions\BasicSimple\BusinessFlows\ConditionVal.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Solutions\BasicSimple\BusinessFlows\DBActionInputValuesTest.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\Temp\sample.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\WindowsApp\WindowsTestApplication.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\BATCH_TEMPLATE.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\book.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\book_with_prefix.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\calculator_soapui_project.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\stock.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\TargetFile.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestResources\XML\TemplateVU.XML">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Update="TestResources\Excel\ExportedDS.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Excel\Names.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\OCR\OcrSample.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\OCR\ReadAllTextPdf.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestResources\PBTestApp.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\atl100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\Browser.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\csm_grid_target.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\EasySoap126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\ejb2pbdll126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\ExPat126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\libeay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\libEncinaClientJaguar.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\libEncina_nodce.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\libjcc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\libjotsclnt.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\libjtml.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\libjutils.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\msvcp100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\msvcr100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\msvcr80.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\nlwnsck.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBACC125.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBACC126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBADD126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBADO126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbapl126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBASE126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBCGB126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBCGC126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBCGL126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBCGR126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbch126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbchkweb.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBCMP126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbcom126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbcomrt126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBCSI126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBD3DCHART126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBD3DHLPR126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBDEV126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBDIR126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbdpl126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBDPP126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBDTS126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBDWE126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBDWExcel12Interop126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbdwg126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBDWM126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbdwo126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbdwp126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBEAS126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbedbg126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbepg126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBGEN126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBGenericPlugin126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbgshare126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbi10126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbin9126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBJAG126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbjcg126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBJDB126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbjpg126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBjvm126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBLIB126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbmgr126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBMT126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBNAT126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbNCrptWrp126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbNetWSDL126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbNetWSRuntime126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbNVOAss126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbNVOWeb126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbo10126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbo90126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBODB126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBODT126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBODW126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbogr126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBOLE126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbora126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBORC126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBPBP126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbpdbg126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBPowerDesignerPlugin126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBRTC126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBRTH126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBRTN126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbscr126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBSHR126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBSNC126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PbSpPrxy126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBSQL126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBSYC126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBSYJ126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBSYS126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbtra126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbtrs126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBUDO126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBUIS126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBViewPlugin126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBVM126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBVSX_PlugOut126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBVSX_PlugOutLib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbw1x126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbw2x126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbw3x126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbw4x126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbw5x126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwcf126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbWCFWSDL126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBWDW126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBWEB126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwebf126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwed126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwei126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwep126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwes126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbWinFrm126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBWIZ126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwpb126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwpg126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBWPS126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwsdl126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pbwsdlclient126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBWZP126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PBXerces126.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pb_test_app.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pb_test_app.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pb_test_app.pbl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pb_test_app.pbt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pb_test_app.usr.opt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\pb_test_ws.pbw">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\PSDWC126.DLL">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\ssleay32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\sybcsi_core29.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\sybcsi_openssl29.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\sybcsi_profiler29.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\sybcsi_propertiesconfig29.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\sybcsi_rolecheck29.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\xerces-c_2_8.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\PBTestApp\xerces-depdom_2_8.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Ginger.Solution.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Environments\Default.Ginger.Environment.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\DataSources\GingerDataSource.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\DataSources\GingerDataSource.Ginger.DataSource.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\BusinessFlows\Business Flow 1.Ginger.BusinessFlow.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Solutions\BasicSimple\Agents\Amdo CSP - Agent 1.Ginger.Agent.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\XML\BATCH_FILE.BAT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Resource Include="TestResources\keys\privatekey_jack.txt" />
+    <Resource Include="TestResources\keys\Privatekey.txt" />
+    <Resource Include="TestResources\ASCF\GingerASCFRecordQueueCommands.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="TestResources\AutoPilot\JSONTemplates\login.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\AutoPilot\Swagger\swagger.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\JavaTestApp\SimpleTableDemo.jnlp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\JSON\sample2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\Names.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestResources\sh\TextParamsEcho.sh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Misc\StatusResultTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml">
+      <HintPath>..\GingerCoreNET\DLLS\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

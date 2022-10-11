@@ -1,0 +1,53 @@
+    <Page x:Class="Ginger.Actions.VisualTesting.UIElementsComparisonPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ginger.Actions.VisualTesting"
+      xmlns:Actions="clr-namespace:Ginger.Actions"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600"
+      Title="UIElementsComparisonPage">
+
+    <Grid Margin="15,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <!--<ColumnDefinition Width="100*"/>-->
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="71"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="18*"/>
+
+        </Grid.RowDefinitions>
+
+
+
+
+        <StackPanel Grid.Row="0">
+            <Label Style="{StaticResource $LabelStyle}" FontWeight="SemiBold" Content="Compare"/>
+            <StackPanel Margin="10,0,0,0">
+                <CheckBox Margin="10,0,0,0">Missing elements in target</CheckBox>
+                <CheckBox Margin="10,0,0,0">Missing elements in source</CheckBox>
+                <CheckBox Margin="10,0,0,0">Compare Elements Bitmap</CheckBox>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Label Style="{StaticResource @LabelStyle}" FontWeight="SemiBold" Content="Baseline Info File" MinWidth="150px"/>
+                <Actions:UCValueExpression x:Name="BaselineInfoFileUCVE" Width="600" Margin="40,0,0,0"/>
+            </StackPanel>
+            <!--<StackPanel>
+                <Actions:UCValueExpression x:Name="BaselineInfoFileUCVE"/>
+            </StackPanel>-->
+        </StackPanel>
+
+
+
+
+    </Grid>
+</Page>
