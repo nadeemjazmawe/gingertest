@@ -44,7 +44,7 @@ jobs:
     - name: Install .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.9'
+        dotnet-version: '6.0.0'
 
       # Run open source static analysis tools
     - name: Run OSSAR
