@@ -1,3 +1,5 @@
+trigger:
+- main
 
 pool:
   vmImage: 'macOS-latest'
