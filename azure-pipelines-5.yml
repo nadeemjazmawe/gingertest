@@ -1,5 +1,5 @@
 pr:
-- main
+- test2
 - releases/*
 
 jobs:
