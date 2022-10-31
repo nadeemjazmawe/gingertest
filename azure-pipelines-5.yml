@@ -1,10 +1,7 @@
 # .NET
 
-pr: 
-  autoCancel: true
-  branches:
-    include:
-    - main
+pr:
+  - main
 
 jobs:
 
