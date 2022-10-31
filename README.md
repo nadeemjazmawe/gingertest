@@ -11,7 +11,7 @@ Linux: [![Build Status](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_api
 # WorkFlolws:
 [![CodeQL](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml)
 
-Ginger is an Automation IDE, Drag & Drop automation, Can be used by users with or without coding skills, open platform with plugin capabilities.
+Ginger is an Automation IDE, Drag & Drop automation, Ca123123123n be used by users with or without coding skills, open platform with plugin capabilities.
 123213
 
 
