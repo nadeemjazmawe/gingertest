@@ -5,7 +5,8 @@
 
 trigger:
 - master
-
+pr:
+- test
 pool:
   vmImage: 'windows-latest'
 
