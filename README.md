@@ -78,6 +78,8 @@ Jenkins - Ginger scripts can be executed from Jenkins build, we have created a G
 ### Ginger have built in actions for common tasks
 - Read/Write from Excel...
 
+
+
 # Ginger open platform
 You can add plugins or create your own.
 
