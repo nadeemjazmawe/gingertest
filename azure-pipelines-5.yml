@@ -2,9 +2,9 @@
 
 pr: 
   autoCancel: true
-  # branches:
-  #   include:
-  #   - **/**
+  branches:
+    include:
+    - main
 
 jobs:
 
