@@ -12,7 +12,7 @@ Linux: [![Build Status](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_api
 [![CodeQL](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/nadeemjazmawe/gingertest/actions/workflows/codeql-analysis.yml)
 
 Ginger is an Automation IDE, Drag & Drop automation, Ca123123123n be used by users with or without coding skills, open platform with plugin capabilities.
-123213
+123213123123
 asdasda
 123123
 
