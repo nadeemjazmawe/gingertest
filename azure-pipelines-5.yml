@@ -1,13 +1,4 @@
 
-trigger:
-  tags:
-    include:
-      - release.*
-
-pr:
-  branches:
-    include:
-    - main  # must quote since "*" is a YAML reserved character; we want a string
 
 jobs:
 
