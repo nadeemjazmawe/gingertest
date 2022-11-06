@@ -46,7 +46,7 @@ Web, Mobile, Web Services, Java application, Windows, Power Builder, Linux/Unix 
 - Power Builder
 - Linux/Unix
 - DOS Console
-- Mainframe 3270
+- Mainframe 3270 
 
 # Why we created Ginger? Is it just another Automation tool/framework? Why is it different?
 Same like many testing organizations we used a commercial tool for our testing, and added on top of it a framework to with our libraries and needs, it worked great for many years but had several limitations: like machine is locked for testing, one test at a time, slow execution, required VBScript knowledge.    During the evolution of digital and more free open source automation libraries, we wanted something smarter, easier to use and maintain, and yes we wanted it to be free too, in 2014 we looked at several open source libraries like Selenium, Appium and since we also needed to automate Windows Apps, PowerBuilder, MF and Linux we decided to create a wrapper with nice UI on top of all these free libraries, and that's where it all started.
