@@ -1,7 +1,6 @@
 trigger:
-- master
-pr:
-- test
+- main
+pr:  [test, master, Features/Linux-Migration, Releases/*, Releases/*/* ]
 jobs:
 
 # ------------------------------------------------------------------------------------------------------
