@@ -5,9 +5,7 @@
 
 trigger:
 - main
-pr:
-- test
-
+pr:  [test, master, Features/Linux-Migration, Releases/*, Releases/*/* ]
 
 pool:
   vmImage: 'windows-latest'
