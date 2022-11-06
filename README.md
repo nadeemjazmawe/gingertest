@@ -90,7 +90,7 @@ You can add plugins or create your own.
 - Activities group
 - Actions
 - Variables 
-
+----
 # Automation libraries
 Ginger is leveraging on a variety of great open source libraries, like: Selenium for Web, Appium for Mobile and more
 
