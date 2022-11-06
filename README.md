@@ -14,7 +14,6 @@ Linux: [![Build Status](https://dev.azure.com/GingerByAmdocs/GingerByAmdocs/_api
 Ginger is an Automation IDE, Drag & Drop automation, Ca123123123n be used by users with or without coding skills, open platform with plugin capabilities.
 123213123123
 asdasda
-123123
 
 - ### [Ginger Website](https://ginger.amdocs.com/)
 - ### [Download Ginger](https://ginger.amdocs.com/#downloads)
