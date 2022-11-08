@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      buildConfiguration: Release
+      BUILD_CONFIGURATION: Release
     
     steps:     
       - uses: actions/checkout@v3
@@ -28,23 +28,23 @@ jobs:
 # start Testing
 # ------------------------------------------------------------------------------------------------------
       - name: Testing GingerUtilsTest
-        run: dotnet test  Ginger/GingerUtilsTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerUtilsTest --configuration ${ BUILD_CONFIGURATION } --logger trx --verbosity=normal
       
       - name: 'Testing GingerCoreCommonTest'
-        run: dotnet test  Ginger/GingerCoreCommonTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerCoreCommonTest --configuration ${ BUILD_CONFIGURATION } --logger trx --verbosity=normal
 
         # for GingerCoreNET we use run setting to limit to have one worker thread due to workspace limitation
       - name: 'Testing GingerCoreNETUnitTest'
-        run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration ${ BUILD_CONFIGURATION } --logger trx --verbosity=normal
 
       - name: 'Testing GingerPluginCoreTest'
-        run: dotnet test  Ginger/GingerPluginCoreTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerPluginCoreTest --configuration ${ BUILD_CONFIGURATION } --logger trx --verbosity=normal
 
       - name: 'Testing GingerConsoleTest'
-        run: dotnet test  Ginger/GingerConsoleTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerConsoleTest --configuration ${ BUILD_CONFIGURATION } --logger trx --verbosity=normal
 
       - name: 'Testing GingerAutoPilotTest'
-        run: dotnet test  Ginger/GingerAutoPilotTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerAutoPilotTest --configuration ${ BUILD_CONFIGURATION } --logger trx --verbosity=normal
         
 
     
