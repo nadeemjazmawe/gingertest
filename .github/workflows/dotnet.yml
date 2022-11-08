@@ -11,35 +11,43 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    steps:
-      
+    
+    env:
+      buildConfiguration: Release
+    
+    steps:     
       - uses: actions/checkout@v3
       
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.301'
       
-      - name: printing
-        run: |
-          pwd
-          ls -alt
     
+    
+# ------------------------------------------------------------------------------------------------------
+# start Testing
+# ------------------------------------------------------------------------------------------------------
       - name: Testing GingerUtilsTest
-        run: dotnet test  Ginger/GingerUtilsTest --configuration Release --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerUtilsTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+      
+      - name: 'Testing GingerCoreCommonTest'
+        run: dotnet test  Ginger/GingerCoreCommonTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+
+        # for GingerCoreNET we use run setting to limit to have one worker thread due to workspace limitation
+      - name: 'Testing GingerCoreNETUnitTest'
+        run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+
+      - name: 'Testing GingerPluginCoreTest'
+        run: dotnet test  Ginger/GingerPluginCoreTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+
+      - name: 'Testing GingerConsoleTest'
+        run: dotnet test  Ginger/GingerConsoleTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+
+      - name: 'Testing GingerAutoPilotTest'
+        run: dotnet test  Ginger/GingerAutoPilotTest --configuration ${{ buildConfiguration }} --logger trx --verbosity=normal
+        
+
     
     
     
-    
-    
-#     - uses: actions/checkout@v3
-#     - name: Setup .NET
-#       uses: actions/setup-dotnet@v3
-#       with:
-#         dotnet-version: 6.0.301
-#     - name: Restore dependencies
-#       run: dotnet restore
-#     - name: Build
-#       run: dotnet build --no-restore
-#     - name: Test
-#       run: dotnet test --no-build --verbosity normal
+
