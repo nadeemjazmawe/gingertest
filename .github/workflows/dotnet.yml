@@ -19,7 +19,11 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.301'
-    
+      
+      - name: printing
+        run: |
+          pwd
+          ls -alt
     
       - name: Testing GingerUtilsTest
         run: dotnet test  Ginger/GingerUtilsTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
