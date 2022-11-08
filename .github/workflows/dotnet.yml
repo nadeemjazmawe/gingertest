@@ -4,10 +4,8 @@
 name: Ginger Linux Build 
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+
 
 jobs:
   build:
@@ -20,7 +18,7 @@ jobs:
       
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '3.1.x'
+          dotnet-version: '6.0.301'
     
     
       - name: Testing GingerUtilsTest
