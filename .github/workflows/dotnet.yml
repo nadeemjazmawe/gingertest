@@ -46,8 +46,19 @@ jobs:
       - name: 'Testing GingerAutoPilotTest'
         run: dotnet test  Ginger/GingerAutoPilotTest --configuration ${BUILD_CONFIGURATION} --logger trx --verbosity=normal
         
+        
+        
+# ------------------------------------------------------------------------------------------------------
+# Publish Test Results
+# ------------------------------------------------------------------------------------------------------
 
     
-    
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()        # run this step even if previous step failed
+        with:
+          name: Ginger Linux UnitTests    # Name of the check run which will be created
+          path: "**/*.trx"                # Path to test results
+          reporter: dotnet-trx            # Format of test results
     
 
