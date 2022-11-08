@@ -26,7 +26,7 @@ jobs:
           ls -alt
     
       - name: Testing GingerUtilsTest
-        run: dotnet test  Ginger/GingerUtilsTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerUtilsTest --configuration Release --logger trx --verbosity=normal
     
     
     
