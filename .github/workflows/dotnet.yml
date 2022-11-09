@@ -61,4 +61,10 @@ jobs:
           path: "**/*.trx"                # Path to test results
           reporter: dotnet-trx            # Format of test results
     
-
+    
+      - name: 'printing path'
+        run: |
+          pwd
+          ls Ginger/GingerRuntime -alt
+          
+          
