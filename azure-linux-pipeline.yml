@@ -30,10 +30,10 @@ jobs:
       version: 6.0.301
       installationPath: $(Agent.ToolsDirectory)/dotnet
 
-    - script: |
-        pwd
-        ls Ginger/GingerRuntime -alt
-      displayName: 'Print path'
+  - script: |
+      pwd
+      ls Ginger/GingerRuntime -alt
+    displayName: 'Print path'
 
 # ------------------------------------------------------------------------------------------------------
 # start Testing
