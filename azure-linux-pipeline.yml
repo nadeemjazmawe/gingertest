@@ -69,10 +69,9 @@ jobs:
 # ------------------------------------------------------------------------------------------------------
 # cd /home/vsts/work/1/s/Ginger/GingerRuntime/bin/Release/net6.0/publish/
 
-  - script: |
-      pwd
-      ls /home/vsts/work/1/s/Ginger/GingerRuntime/bin/Release/net6.0/publish/ -alt
+  - script: ls /home/vsts/work/1/s/Ginger/GingerRuntime/bin/Release/net6.0/publish/ -alt
     displayName: 'Print path'
+
 
   - task: PublishTestResults@2
     displayName: Publish test result
