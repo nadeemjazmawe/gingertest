@@ -68,3 +68,7 @@ jobs:
           ls Ginger/GingerRuntime -alt
           
           
+      - name: Run Standalone CLI Test
+        run: ./CLITests.ps1
+          
+          
