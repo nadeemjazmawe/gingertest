@@ -31,9 +31,9 @@ jobs:
       installationPath: $(Agent.ToolsDirectory)/dotnet
 
     - script: |
-      pwd
-      ls Ginger/GingerRuntime -alt
-    displayName: 'Print path'
+        pwd
+        ls Ginger/GingerRuntime -alt
+      displayName: 'Print path'
 
 # ------------------------------------------------------------------------------------------------------
 # start Testing
@@ -81,9 +81,9 @@ jobs:
       testResultsFiles: '**/*.trx'
 
   - script: |
-    pwd
-    ls /home/vsts/work/1/s/Ginger/GingerRuntime/bin/Release/net6.0/publish/ -alt
-  displayName: 'Print path'
+      pwd
+      ls /home/vsts/work/1/s/Ginger/GingerRuntime/bin/Release/net6.0/publish/ -alt
+    displayName: 'Print path'
 
 # ------------------------------------------------------------------------------------------------------
 # Run Standalone CLI Test
