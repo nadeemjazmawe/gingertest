@@ -48,14 +48,14 @@ jobs:
   - script: dotnet test  Ginger/GingerCoreNETUnitTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
     displayName: 'Testing GingerCoreNETUnitTest'
 
-  - script: dotnet test  Ginger/GingerPluginCoreTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
-    displayName: 'Testing GingerPluginCoreTest'
+  # - script: dotnet test  Ginger/GingerPluginCoreTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
+  #   displayName: 'Testing GingerPluginCoreTest'
 
-  - script: dotnet test  Ginger/GingerConsoleTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
-    displayName: 'Testing GingerConsoleTest'
+  # - script: dotnet test  Ginger/GingerConsoleTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
+  #   displayName: 'Testing GingerConsoleTest'
 
-  - script: dotnet test  Ginger/GingerAutoPilotTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
-    displayName: 'Testing GingerAutoPilotTest'
+  # - script: dotnet test  Ginger/GingerAutoPilotTest --configuration $(buildConfiguration) --logger trx --verbosity=normal
+  #   displayName: 'Testing GingerAutoPilotTest'
 
 # ------------------------------------------------------------------------------------------------------
 # Publish GingerRuntime
