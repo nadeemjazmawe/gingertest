@@ -69,6 +69,8 @@ jobs:
           
           
       - name: Run Standalone CLI Test
-        run: ./CLITests.ps1
+        run: |
+          chmod +x CLITests.ps1
+          ./CLITests.ps1
           
           
