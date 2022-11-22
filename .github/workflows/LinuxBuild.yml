@@ -71,5 +71,5 @@ jobs:
           pwd
           ls -alt
           chmod +x CLITests.ps1
-         ./CLITests.ps1
+       #  ./CLITests.ps1
           
