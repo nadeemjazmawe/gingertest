@@ -71,8 +71,9 @@ jobs:
       - name: Run Standalone CLI Test
         if: success() || failure()        # run this step even if previous step failed
         run: |
+          pwd
           ls -alt
           chmod +x CLITests.ps1
-          ./CLITests.ps1
+       #   ./CLITests.ps1
           
           
