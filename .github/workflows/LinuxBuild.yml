@@ -1,4 +1,4 @@
-name: Ginger Linux Build 
+name: Ginger Linux Build2
 
 on:
   workflow_dispatch:
