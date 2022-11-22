@@ -16,14 +16,14 @@ echo "**************************************************************************
 echo "run simple solution"
 echo "******************************************************************************************************************************"
 
-dotnet GingerConsole.dll run -s "/home/runner/work/gingertest/gingertest/GingerCoreNETUnitTest/TestResources/Solutions/CLI" -e "Default" -r "Default Run Set"
+# dotnet GingerConsole.dll run -s "/home/runner/work/gingertest/gingertest/GingerCoreNETUnitTest/TestResources/Solutions/CLI" -e "Default" -r "Default Run Set"
 
 
 echo "******************************************************************************************************************************"
 echo "analyze solution"
 echo "******************************************************************************************************************************"
 
-dotnet GingerConsole.dll analyze -s "/home/runner/work/gingertest/gingertest/GingerCoreNETUnitTest/TestResources/Solutions/CLI" 
+# dotnet GingerConsole.dll analyze -s "/home/runner/work/gingertest/gingertest/GingerCoreNETUnitTest/TestResources/Solutions/CLI" 
 
 
-exit $exitcode
+# exit $exitcode
