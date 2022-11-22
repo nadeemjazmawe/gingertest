@@ -63,6 +63,7 @@ jobs:
         run: |
           pwd
           ls Ginger/GingerRuntime -alt
+          dotnet tool install --global dotnet-ef
           
           
       - name: Run Standalone CLI Test
