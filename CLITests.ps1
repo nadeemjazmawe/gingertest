@@ -23,7 +23,7 @@ echo "**************************************************************************
 echo "analyze solution"
 echo "******************************************************************************************************************************"
 
-# dotnet GingerConsole.dll analyze -s "/home/runner/work/gingertest/gingertest/GingerCoreNETUnitTest/TestResources/Solutions/CLI" 
+dotnet GingerConsole.dll analyze -s "/home/runner/work/gingertest/gingertest/GingerCoreNETUnitTest/TestResources/Solutions/CLI" 
 
 
 # exit $exitcode
