@@ -57,8 +57,18 @@ jobs:
           name: Ginger Linux UnitTests    # Name of the check run which will be created
           path: "**/*.trx"                # Path to test results
           reporter: dotnet-trx            # Format of test results
+      
+      
+      - name: 'printing file - publish'
+        run: | 
+          find . -type d -name "publish"
     
     
+      - name: 'printing file - GingerConsole.dll'
+        run: | 
+          find . d -name "GingerConsole.dll"    
+   
+   
       - name: 'printing path'
         run: |
           pwd
