@@ -59,14 +59,14 @@ jobs:
           reporter: dotnet-trx            # Format of test results
       
       
-      - name: 'printing file - publish'
+      - name: 'printing file - Release '
         run: | 
-          find . -type d -name "publish"
+          find . -type d -name "Release"
     
     
       - name: 'printing file - GingerConsole.dll'
         run: | 
-          find . d -name "GingerConsole.dll"    
+          find . -name "GingerConsole.dll"    
    
    
       - name: 'printing path'
