@@ -2,7 +2,7 @@ echo "-------------------------------------------------------------"
 echo "-                         Run CLI Tests                     -"
 echo "-------------------------------------------------------------"
 
-cd /home/runner/work/gingertest/gingertest/GingerRuntime/bin/Release/net6.0/publish/
+cd /home/runner/work/gingertest/Ginger/GingerRuntime/bin/Release/net6.0/publish/
 
 
 echo "******************************************************************************************************************************"
@@ -24,6 +24,6 @@ echo "analyze solution"
 echo "******************************************************************************************************************************"
 
 dotnet GingerConsole.dll analyze -s "/home/runner/work/gingertest/gingertest/GingerCoreNETUnitTest/TestResources/Solutions/CLI" 
-
+home/vsts/work/1/s/Ginger/GingerCoreNETUnitTest/TestResources/Solutions/CLI
 
 # exit $exitcode
