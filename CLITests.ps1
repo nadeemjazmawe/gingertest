@@ -2,8 +2,8 @@ echo "-------------------------------------------------------------"
 echo "-                         Run CLI Tests                     -"
 echo "-------------------------------------------------------------"
 
-cd /home/runner/work/gingertest/Ginger/GingerRuntime/bin/Release/net6.0/publish/
-
+cd /home/runner/work/gingertest/Ginger/GingerRuntime/bin/Release #/net6.0/publish/
+pwd
 
 echo "******************************************************************************************************************************"
 echo "help run"
