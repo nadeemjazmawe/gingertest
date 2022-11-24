@@ -51,12 +51,15 @@ jobs:
         run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration Release --logger trx --verbosity=normal
 
       - name: 'Testing GingerPluginCoreTest'
+        if: success() || failure()  
         run: dotnet test  Ginger/GingerPluginCoreTest --configuration Release --logger trx --verbosity=normal
 
       - name: 'Testing GingerConsoleTest'
+        if: success() || failure()  
         run: dotnet test  Ginger/GingerConsoleTest --configuration Release --logger trx --verbosity=normal
 
       - name: 'Testing GingerAutoPilotTest'
+        if: success() || failure()  
         run: dotnet test  Ginger/GingerAutoPilotTest --configuration Release --logger trx --verbosity=normal     
 
 #       - name: Test
