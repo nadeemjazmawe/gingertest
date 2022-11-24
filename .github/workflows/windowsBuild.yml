@@ -42,7 +42,7 @@ jobs:
 # start Testing 
 # ------------------------------------------------------------------------------------------------------
       - name: Testing GingerUtilsTest
-        run: dotnet test  Ginger/GingerUtilsTest --configuration ${BUILD_CONFIGURATION} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerUtilsTest --configuration Release --logger trx --verbosity=normal
 
       - name: 'Testing GingerCoreCommonTest'
         run: dotnet test  Ginger/GingerCoreCommonTest --configuration ${BUILD_CONFIGURATION} --logger trx --verbosity=normal
