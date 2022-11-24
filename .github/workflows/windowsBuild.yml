@@ -46,12 +46,12 @@ jobs:
 
       - name: 'Testing GingerCoreCommonTest'
         if: success() || failure()  
-        run: dotnet test  Ginger/GingerCoreCommonTest --configuration %BUILD_CONFIGURATION% --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerCoreCommonTest --configuration BUILD_CONFIGURATION --logger trx --verbosity=normal
 
         # for GingerCoreNET we use run setting to limit to have one worker thread due to workspace limitation
       - name: 'Testing GingerCoreNETUnitTest'
         if: success() || failure()  
-        run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration ${env.BUILD_CONFIGURATION} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration env.BUILD_CONFIGURATION --logger trx --verbosity=normal
 
       - name: 'Testing GingerPluginCoreTest'
         run: dotnet test  Ginger/GingerPluginCoreTest --configuration ${BUILD_CONFIGURATION} --logger trx --verbosity=normal
