@@ -1,6 +1,3 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: Ginger Windows Build
 
 on:
@@ -46,21 +43,21 @@ jobs:
 
       - name: 'Testing GingerCoreCommonTest'
         if: success() || failure()  
-        run: dotnet test  Ginger/GingerCoreCommonTest --configuration BUILD_CONFIGURATION --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerCoreCommonTest --configuration Release --logger trx --verbosity=normal
 
         # for GingerCoreNET we use run setting to limit to have one worker thread due to workspace limitation
       - name: 'Testing GingerCoreNETUnitTest'
         if: success() || failure()  
-        run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration env.BUILD_CONFIGURATION --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration Release --logger trx --verbosity=normal
 
       - name: 'Testing GingerPluginCoreTest'
-        run: dotnet test  Ginger/GingerPluginCoreTest --configuration ${BUILD_CONFIGURATION} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerPluginCoreTest --configuration Release --logger trx --verbosity=normal
 
       - name: 'Testing GingerConsoleTest'
-        run: dotnet test  Ginger/GingerConsoleTest --configuration ${BUILD_CONFIGURATION} --logger trx --verbosity=normal
+        run: dotnet test  Ginger/GingerConsoleTest --configuration Release --logger trx --verbosity=normal
 
       - name: 'Testing GingerAutoPilotTest'
-        run: dotnet test  Ginger/GingerAutoPilotTest --configuration ${BUILD_CONFIGURATION} --logger trx --verbosity=normal     
+        run: dotnet test  Ginger/GingerAutoPilotTest --configuration Release --logger trx --verbosity=normal     
 
 #       - name: Test
 #         run: dotnet test --no-build --verbosity normal
@@ -72,7 +69,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()        # run this step even if previous step failed
         with:
-          name: Ginger Linux UnitTests    # Name of the check run which will be created
+          name: Ginger Windows UnitTests    # Name of the check run which will be created
           path: "**/*.trx"                # Path to test results
           reporter: dotnet-trx            # Format of test results
           
