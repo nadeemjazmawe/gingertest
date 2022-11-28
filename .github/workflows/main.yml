@@ -28,3 +28,7 @@ jobs:
 
     - name: Build
       run: msbuild ./Ginger/Ginger.sln /p:DebugSymbols=true /p:DebugType=full /p:Configuration=Release
+      
+    - name: 'printing file - GingerConsole.dll'
+      run: | 
+        find . -name "GingerConsole.dll" 
