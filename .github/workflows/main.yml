@@ -24,7 +24,7 @@ jobs:
       uses: Nuget/setup-nuget@v1.0.5
 
     - name: Restore nuget packages
-      run: nuget restore **/*.sln
+      run: nuget restore ./Ginger/Ginger.sln
 
     - name: Build
-      run: msbuild **/*.sln Configuration=Release
+      run: msbuild ./Ginger/Ginger.sln Configuration=Release
