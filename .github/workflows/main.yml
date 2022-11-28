@@ -29,6 +29,33 @@ jobs:
     - name: Build
       run: msbuild ./Ginger/Ginger.sln /p:DebugSymbols=true /p:DebugType=full /p:Configuration=Release
       
+# ------------------------------------------------------------------------------------------------------
+# start Testing 
+# ------------------------------------------------------------------------------------------------------
+    - name: Testing GingerUtilsTest
+      run: dotnet test  Ginger/GingerUtilsTest --configuration Release --logger trx --verbosity=normal
+
+    - name: 'Testing GingerCoreCommonTest'
+      if: success() || failure()  
+      run: dotnet test  Ginger/GingerCoreCommonTest --configuration Release --logger trx --verbosity=normal
+
+      # for GingerCoreNET we use run setting to limit to have one worker thread due to workspace limitation
+    - name: 'Testing GingerCoreNETUnitTest'
+      if: success() || failure()  
+      run: dotnet test  Ginger/GingerCoreNETUnitTest --configuration Release --logger trx --verbosity=normal
+
+    - name: 'Testing GingerPluginCoreTest'
+      if: success() || failure()  
+      run: dotnet test  Ginger/GingerPluginCoreTest --configuration Release --logger trx --verbosity=normal
+
+    - name: 'Testing GingerConsoleTest'
+      if: success() || failure()  
+      run: dotnet test  Ginger/GingerConsoleTest --configuration Release --logger trx --verbosity=normal
+
+    - name: 'Testing GingerAutoPilotTest'
+      if: success() || failure()  
+      run: dotnet test  Ginger/GingerAutoPilotTest --configuration Release --logger trx --verbosity=normal    
+      
     - name: 'printing file - GingerConsole.dll'
       run: | 
         dir "GingerConsole.dll" /s
