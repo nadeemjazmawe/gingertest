@@ -27,4 +27,4 @@ jobs:
       run: nuget restore ./Ginger/Ginger.sln
 
     - name: Build
-      run: msbuild ./Ginger/Ginger.sln Configuration=Release
+      run: msbuild **/*.sln /p:DebugSymbols=true /p:DebugType=full /p:Configuration=Release
