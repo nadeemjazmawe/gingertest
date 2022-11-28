@@ -31,4 +31,4 @@ jobs:
       
     - name: 'printing file - GingerConsole.dll'
       run: | 
-        find . -name "GingerConsole.dll" 
+        dir "GingerConsole.dll" /s
