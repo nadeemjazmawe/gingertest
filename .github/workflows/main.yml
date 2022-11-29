@@ -11,6 +11,10 @@ jobs:
     steps:
     - name: Checkout code.
       uses: actions/checkout@v2
+      
+    - name: 'printing file - GingerConsoleTest.dll'
+      run: | 
+        dir "GingerConsoleTest.dll" /s
           
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v3.0.3
