@@ -1,0 +1,30 @@
+name: deletme
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code.
+      uses: actions/checkout@v2
+          
+
+      
+    - name: 'printing file - GingerConsoleTest.dll'
+      if: success() || failure()  
+      run: | 
+        dir "GingerConsoleTest.dll" /s
+        
+    - name: 'printing file - component.xml'
+      if: success() || failure()  
+      run: | 
+        dir "component.xml" /s
+        
+    - name: 'printing file - LICENSE'
+      if: success() || failure()  
+      run: | 
+        dir "LICENSE" /s
