@@ -17,14 +17,14 @@ jobs:
     - name: 'printing file - GingerConsoleTest.dll'
       if: success() || failure()  
       run: | 
-        dir "GingerConsoleTest.dll" /s
+        dir  /s "GingerConsoleTest.dll"
         
     - name: 'printing file - component.xml'
       if: success() || failure()  
       run: | 
-        dir "component.xml" /s
+        dir /s "component.xml"
         
     - name: 'printing file - LICENSE'
       if: success() || failure()  
       run: | 
-        dir "LICENSE" /s
+        dir /s "LICENSE" 
