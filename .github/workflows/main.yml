@@ -56,6 +56,6 @@ jobs:
       if: success() || failure()  
       run: dotnet test  Ginger/GingerAutoPilotTest --configuration Release --logger trx --verbosity=normal    
       
-    - name: 'printing file - GingerConsole.dll'
+    - name: 'printing file - GingerConsoleTest.dll'
       run: | 
-        dir "GingerConsole.dll" /s
+        dir "GingerConsoleTest.dll" /s
