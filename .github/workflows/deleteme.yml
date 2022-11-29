@@ -22,9 +22,9 @@ jobs:
     - name: 'printing file - component.xml'
       if: success() || failure()  
       run: | 
-        dir /s "component.xml"
+        find "component.xml"
         
     - name: 'printing file - LICENSE'
       if: success() || failure()  
       run: | 
-        dir /s "LICENSE" 
+        find "LICENSE" 
