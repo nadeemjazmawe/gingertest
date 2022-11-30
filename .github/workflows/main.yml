@@ -32,6 +32,9 @@ jobs:
 # ------------------------------------------------------------------------------------------------------
 # start Testing 
 # ------------------------------------------------------------------------------------------------------
+  testing:
+    runs-on: windows-latest
+     steps:
     - name: Testing GingerUtilsTest
       run: dotnet test  Ginger/GingerUtilsTest --configuration Release --logger trx --verbosity=normal
 
@@ -55,6 +58,10 @@ jobs:
     - name: 'Testing GingerAutoPilotTest'
       if: success() || failure()  
       run: dotnet test  Ginger/GingerAutoPilotTest --configuration Release --logger trx --verbosity=normal    
+      
+  publish linux:
+    runs-on: windows-latest
+     steps: 
       
     - name: 'printing file - GingerConsoleTest.dll'
       if: success() || failure()  
