@@ -21,6 +21,10 @@ jobs:
       
     
     
+      - name: 'printing file - GingerConsole.dll'
+        if: success() || failure()        # run this step even if previous step failed
+        run: | 
+          ls -alt Ginger/GingerUtilsTest 
 # ------------------------------------------------------------------------------------------------------
 # start Testing 
 # ------------------------------------------------------------------------------------------------------
@@ -46,10 +50,16 @@ jobs:
         
         
 # ------------------------------------------------------------------------------------------------------
-# Publish Test Results
+# Publish GingerRuntime
 # ------------------------------------------------------------------------------------------------------
-
-    
+      - name: 'Publish GingerRuntime'
+        run: dotnet publish  Ginger/GingerRuntime -c Release
+        
+        
+        
+# ------------------------------------------------------------------------------------------------------
+# Publish Test Results
+# ------------------------------------------------------------------------------------------------------   
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: success() || failure()        # run this step even if previous step failed
@@ -59,6 +69,15 @@ jobs:
           reporter: dotnet-trx            # Format of test results
       
       
+      
+      
+      
+      - name: 'printing file - GingerConsole.dll'
+        if: success() || failure()        # run this step even if previous step failed
+        run: | 
+          ls -alt Ginger/GingerUtilsTest 
+          
+          
       - name: 'printing file - Release '
         run: | 
           find . -type d -name "Release"
@@ -76,8 +95,11 @@ jobs:
           dotnet tool install --global dotnet-ef --version 6.*
  #         dotnet tool install --global dotnet-ef
  
+ 
           
-          
+# ------------------------------------------------------------------------------------------------------
+# Run Standalone CLI Test
+# ------------------------------------------------------------------------------------------------------          
       - name: Run Standalone CLI Test
         if: success() || failure()        # run this step even if previous step failed
         run: |
