@@ -84,6 +84,10 @@ jobs:
       - name: 'printing path'
         run: |
           ls Ginger/GingerRuntime/bin/Release -alt
+          
+      - name: 'printing path'
+        run: |
+          ls Ginger/GingerRuntime/bin/Release/net6.0 -alt
  
           
 # ------------------------------------------------------------------------------------------------------
