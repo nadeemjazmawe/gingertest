@@ -10,20 +10,20 @@ echo "**************************************************************************
 echo "help run"
 echo "******************************************************************************************************************************"
 
-dotnet GingerConsole.dll help run
+dotnet GingerRuntime.dll help run
 
 
 echo "******************************************************************************************************************************"
 echo "run simple solution"
 echo "******************************************************************************************************************************"
 
-dotnet GingerConsole.dll run -s "/home/runner/work/gingertest/gingertest/Ginger/GingerCoreNETUnitTest/TestResources/Solutions/CLI" -e "Default" -r "Default Run Set"
+dotnet GingerRuntime.dll run -s "/home/runner/work/gingertest/gingertest/Ginger/GingerCoreNETUnitTest/TestResources/Solutions/CLI" -e "Default" -r "Default Run Set"
 
 
 echo "******************************************************************************************************************************"
 echo "analyze solution"
 echo "******************************************************************************************************************************"
 
-dotnet GingerConsole.dll analyze -s "/home/runner/work/gingertest/gingertest/Ginger/GingerCoreNETUnitTest/TestResources/Solutions/CLI" 
+dotnet GingerRuntime.dll analyze -s "/home/runner/work/gingertest/gingertest/Ginger/GingerCoreNETUnitTest/TestResources/Solutions/CLI" 
 
 # exit $exitcode
