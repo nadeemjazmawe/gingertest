@@ -16,7 +16,7 @@ jobs:
     - name: 'printing file - GingerConsoleTest.dll'
       if: success() || failure()  
       run: | 
-        cd
+        chdir
       
 #     - name: 'printing file - GingerConsoleTest.dll'
 #       if: success() || failure()  
