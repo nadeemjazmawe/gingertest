@@ -8,12 +8,12 @@ $exitcode=0
 
 mkdir D:\a\gingertest\gingertest\TestResults\DotNetFramework
 
-# ./vstest.console.exe "D:\a\gingertest\gingertest\Ginger\GingerCoreTest\bin\Release\net6.0-windows\GingerCoreTest.dll" /Logger:trx /ResultsDirectory:D:\a\gingertest\gingertest\TestResults\DotNetFramework
-# Write-Host ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> LastExitCode: " $LastExitCode
-# if ($LastExitCode -ne 0)
-# {
-# 	$exitcode = 1
-# }
+./vstest.console.exe "D:\a\gingertest\gingertest\Ginger\GingerCoreTest\bin\Release\net6.0-windows\GingerCoreTest.dll" /Logger:trx /ResultsDirectory:D:\a\gingertest\gingertest\TestResults\DotNetFramework
+Write-Host ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> LastExitCode: " $LastExitCode
+if ($LastExitCode -ne 0)
+{
+	$exitcode = 1
+}
 
 
 # ./vstest.console.exe "D:\a\gingertest\gingertest\Ginger\GingerTest\bin\Release\net6.0-windows\GingerTest.dll" /Logger:trx /ResultsDirectory:D:\a\gingertest\gingertest\TestResults\DotNetFramework
