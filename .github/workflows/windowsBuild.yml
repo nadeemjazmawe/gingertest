@@ -15,27 +15,36 @@ jobs:
       - uses: actions/checkout@v3
 
 # ------------------------------------------------------------------------------------------------------
-# Install .Net core SDK 6.0.x
+# Install .Net core SDK 6.0.301
 # ------------------------------------------------------------------------------------------------------
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.301
           
+# ------------------------------------------------------------------------------------------------------
+# Install Nuget tool v1.0.5
+# ------------------------------------------------------------------------------------------------------
       - name: Setup Nuget
         uses: Nuget/setup-nuget@v1.0.5
-
-      - name: Restore nuget packages
-        run: nuget restore ./Ginger/Ginger.sln
 
 # ------------------------------------------------------------------------------------------------------
 # Restore Ginger solution NuGet packages
 # ------------------------------------------------------------------------------------------------------
-#       - name: Restore dependencies
-#         run: dotnet restore
+      - name: Restore nuget packages
+        run: nuget restore ./Ginger/Ginger.sln
+
+
 
 # ------------------------------------------------------------------------------------------------------
-# Build Ginger Solution
+# SeaLight
+# ---------------------------------------------------------------------------------------------------
+
+
+
+
+# ------------------------------------------------------------------------------------------------------
+# Instal msbild && Build Ginger Solution
 # ------------------------------------------------------------------------------------------------------
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
@@ -43,8 +52,9 @@ jobs:
 
       - name: Build
         run: msbuild ./Ginger/Ginger.sln /p:DebugSymbols=true /p:DebugType=full /p:Configuration=Release
+        
 # ------------------------------------------------------------------------------------------------------
-# start Testing 
+# Start Testing 
 # ------------------------------------------------------------------------------------------------------
       - name: Testing GingerUtilsTest
         run: dotnet test  Ginger/GingerUtilsTest --configuration Release --logger trx --verbosity=normal
@@ -73,6 +83,16 @@ jobs:
 #       - name: Test
 #         run: dotnet test --no-build --verbosity normal
         
+        
+        
+        
+# ------------------------------------------------------------------------------------------------------
+# Run .Net Framework tests using powershell and publish the results
+# ------------------------------------------------------------------------------------------------------
+
+      - name: Run tests for Ginger .NetFramework *Test Dlls
+        run: powershell -file "TestDotNetFramework.ps1"
+      
 # ------------------------------------------------------------------------------------------------------
 # Publish Test Results
 # ------------------------------------------------------------------------------------------------------
@@ -83,5 +103,14 @@ jobs:
           name: Ginger Windows UnitTests    # Name of the check run which will be created
           path: "**/*.trx"                # Path to test results
           reporter: dotnet-trx            # Format of test results
+          
+          
+# ------------------------------------------------------------------------------------------------------
+# Stop Sealight
+# ------------------------------------------------------------------------------------------------------        
+#       - task: EndTestExecution@2
+#         inputs:
+#           sealightsToken: "$(SLAGENTTOKEN)"
+#           SealightsBuildSessionId : $(Build.ArtifactStagingDirectory)\SealightsBuildSessionId.txt 
           
           
