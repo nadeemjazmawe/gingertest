@@ -21,6 +21,12 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.301
+          
+      - name: Setup Nuget
+        uses: Nuget/setup-nuget@v1.0.5
+
+      - name: Restore nuget packages
+        run: nuget restore ./Ginger/Ginger.sln
 
 # ------------------------------------------------------------------------------------------------------
 # Restore Ginger solution NuGet packages
@@ -31,10 +37,12 @@ jobs:
 # ------------------------------------------------------------------------------------------------------
 # Build Ginger Solution
 # ------------------------------------------------------------------------------------------------------
-#       - name: Build
-#         run: dotnet build --no-restore
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
 
 
+      - name: Build
+        run: msbuild ./Ginger/Ginger.sln /p:DebugSymbols=true /p:DebugType=full /p:Configuration=Release
 # ------------------------------------------------------------------------------------------------------
 # start Testing 
 # ------------------------------------------------------------------------------------------------------
