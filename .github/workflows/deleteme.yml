@@ -13,18 +13,22 @@ jobs:
       uses: actions/checkout@v2
           
 
-      
     - name: 'printing file - GingerConsoleTest.dll'
       if: success() || failure()  
       run: | 
-        dir "GingerConsoleTest.dll"
+        cd
+      
+#     - name: 'printing file - GingerConsoleTest.dll'
+#       if: success() || failure()  
+#       run: | 
+#         dir "GingerConsoleTest.dll"
         
-    - name: 'printing file - component.xml'
-      if: success() || failure()  
-      run: | 
-        find "component.xml"
+#     - name: 'printing file - component.xml'
+#       if: success() || failure()  
+#       run: | 
+#         find "component.xml"
         
-    - name: 'printing file - LICENSE'
-      if: success() || failure()  
-      run: | 
-        find "LICENSE" 
+#     - name: 'printing file - LICENSE'
+#       if: success() || failure()  
+#       run: | 
+#         find "LICENSE" 
