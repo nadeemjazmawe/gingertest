@@ -25,6 +25,10 @@ jobs:
       if: success() || failure()  
       run: | 
         Get-Location
+        
+    - name: Run tests for Ginger .NetFramework *Test Dlls
+      if: success() || failure()        # run this step even if previous step failed
+      run: powershell -file "TestDotNetFramework.ps1"
       
 #     - name: 'printing file - GingerConsoleTest.dll'
 #       if: success() || failure()  
