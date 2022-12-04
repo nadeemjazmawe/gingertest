@@ -91,6 +91,7 @@ jobs:
 # ------------------------------------------------------------------------------------------------------
 
       - name: Run tests for Ginger .NetFramework *Test Dlls
+        if: success() || failure()        # run this step even if previous step failed
         run: powershell -file "TestDotNetFramework.ps1"
       
 # ------------------------------------------------------------------------------------------------------
