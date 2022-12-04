@@ -4,9 +4,9 @@ Write-Host "-------------------------------------------------------------"
 
 cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\" 
 
-# $exitcode=0
+$exitcode=0
 
-# mkdir D:\a\gingertest\gingertest\TestResults\DotNetFramework
+mkdir D:\a\gingertest\gingertest\TestResults\DotNetFramework
 
 # ./vstest.console.exe "D:\a\gingertest\gingertest\Ginger\GingerCoreTest\bin\Release\net6.0-windows\GingerCoreTest.dll" /Logger:trx /ResultsDirectory:D:\a\gingertest\gingertest\TestResults\DotNetFramework
 # Write-Host ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> LastExitCode: " $LastExitCode
