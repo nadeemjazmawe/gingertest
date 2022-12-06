@@ -26,7 +26,7 @@ jobs:
         
     - name: download sealights
       run: |
-        Write-Output "Build Reason = $(Build.Reason)"
+        Write-Output "Build Reason =  github.event_name"
         $sldomain="amdocs.sealights.co" 
         $slagenttoken= "$(SLAGENTTOKEN)"
         $APP_NAME='Ginger'
