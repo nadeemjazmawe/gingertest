@@ -12,28 +12,51 @@ jobs:
     - name: Checkout code.
       uses: actions/checkout@v2
       
-    - name: make new file
-      run: |
-        mkdir sealights
-        cd sealights
-      
-    #- name: download sealights
-    #  run: |
-   #     iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri https://agents.sealights.co/dotnetcore/sealights-dotnet-agent-latest.zip
-  #      Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath sl-dotnet-agent -Force
- #       Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
+#     - name: make new file
+#       run: |
+#         mkdir sealights
+#         cd sealights
+#       
+#     - name: download sealights
+#       run: |
+#        iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri https://agents.sealights.co/dotnetcore/sealights-dotnet-agent-latest.zip
+#        Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath sl-dotnet-agent -Force
+#        Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
         
         
     - name: download sealights
       run: |
-        $sldomain="mycompany.sealights.co" #Update with your customer domain
-        $slToken="$(Get-Content sltoken.txt)" #Prefer a credential Environment variable for the token
-
-        Write-Output "Retrieve version from Sealights settings..." 
-        $slHeader=@{'Accept'='application/json'; 'Authorization'="Bearer $slToken"}
-        $agentversion = ((iwr -Uri https://$sldomain/api/v2/agents/dotnet/recommended -UseBasicParsing -Headers $slHeader).Content | ConvertFrom-Json | Select-Object agent).agent.version
-        Write-Output "Download Sealights DotNet agent..." 
-        iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri http://agents.sealights.co/SL.DotNet/SL.DotNet-$agentversion.zip 
-        Write-Output "Expanding downloaded archive..." 
+        Write-Output "Build Reason = $(Build.Reason)"
+        $sldomain="amdocs.sealights.co" 
+        $slagenttoken= "$(SLAGENTTOKEN)"
+        $APP_NAME='Ginger'
+        $APP_NAMESPACE='Amdocs.*,ginger.*'
+        Write-Output "Token $($SLAGENTTOKEN.SubString($SLAGENTTOKEN.Length-5))"
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        Write-Output "Download the Sealights DotNet agent version set in settings..." 
+        $agentversion = ((iwr -Uri https://$($sldomain)/api/v2/agents/dotnet/recommended -Headers @{'Accept' = 'application/json'; 'Authorization' = "Bearer $($slagenttoken)"}).Content | ConvertFrom-Json | Select-Object agent).agent.version
+        iwr -OutFile sealights-dotnet-agent.zip -Uri http://agents.sealights.co/SL.DotNet/SL.DotNet-$($agentversion).zip
         Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath SL.DotNet -Force
-        Write-Output "Sealights agent version used is: $(Get-Content .\SL.DotNet\version.txt)"  
+        Write-Output "Sealights agent version used is:$(Get-Content .\SL.DotNet\version.txt)"
+        #Retrieve the same name of target branch as reported in Sealights Dashboard by removing the uncecessary prefix
+        $PR_NUMBER="$(system.pullRequest.pullRequestNumber)"
+        $REPO_URL="$(System.PullRequest.SourceRepositoryURI)"
+        $PR_TARGET_BRANCH="Releases/" + "$(System.PullRequest.TargetBranch)".Replace("refs/heads/","")
+        #Retrieve the last Commit Hash from the PR branch and not the one from the ADO local Merge (via git log history)
+        $PR_LAST_COMMIT=$(git log -2 --format=%H).Split(" ")[1]       
+        Write-Output "`n*** Create PR BSID ***"
+        .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionIdFile $(Build.ArtifactStagingDirectory)\SealightsBuildSessionId.txt --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
+        Write-Output "`n*** Prepare for MSBuild ***"
+        .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionIdFile $(Build.ArtifactStagingDirectory)\SealightsBuildSessionId.txt --workspacePath $(Build.Repository.LocalPath)\Ginger --baseDir  $(Build.Repository.LocalPath) --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
+
+#         $sldomain="mycompany.sealights.co" #Update with your customer domain
+#         $slToken="$(Get-Content sltoken.txt)" #Prefer a credential Environment variable for the token
+
+#         Write-Output "Retrieve version from Sealights settings..." 
+#         $slHeader=@{'Accept'='application/json'; 'Authorization'="Bearer $slToken"}
+#         $agentversion = ((iwr -Uri https://$sldomain/api/v2/agents/dotnet/recommended -UseBasicParsing -Headers $slHeader).Content | ConvertFrom-Json | Select-Object agent).agent.version
+#         Write-Output "Download Sealights DotNet agent..." 
+#         iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri http://agents.sealights.co/SL.DotNet/SL.DotNet-$agentversion.zip 
+#         Write-Output "Expanding downloaded archive..." 
+#         Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath SL.DotNet -Force
+#         Write-Output "Sealights agent version used is: $(Get-Content .\SL.DotNet\version.txt)"  
