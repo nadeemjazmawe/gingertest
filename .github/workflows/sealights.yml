@@ -17,8 +17,23 @@ jobs:
         mkdir sealights
         cd sealights
       
+    #- name: download sealights
+    #  run: |
+   #     iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri https://agents.sealights.co/dotnetcore/sealights-dotnet-agent-latest.zip
+  #      Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath sl-dotnet-agent -Force
+ #       Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
+        
+        
     - name: download sealights
       run: |
-        iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri https://agents.sealights.co/dotnetcore/sealights-dotnet-agent-latest.zip
-        Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath sl-dotnet-agent -Force
-        Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
+        $sldomain="mycompany.sealights.co" #Update with your customer domain
+        $slToken="$(Get-Content sltoken.txt)" #Prefer a credential Environment variable for the token
+
+        Write-Output "Retrieve version from Sealights settings..." 
+        $slHeader=@{'Accept'='application/json'; 'Authorization'="Bearer $slToken"}
+        $agentversion = ((iwr -Uri https://$sldomain/api/v2/agents/dotnet/recommended -UseBasicParsing -Headers $slHeader).Content | ConvertFrom-Json | Select-Object agent).agent.version
+        Write-Output "Download Sealights DotNet agent..." 
+        iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri http://agents.sealights.co/SL.DotNet/SL.DotNet-$agentversion.zip 
+        Write-Output "Expanding downloaded archive..." 
+        Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath SL.DotNet -Force
+        Write-Output "Sealights agent version used is: $(Get-Content .\SL.DotNet\version.txt)"  
