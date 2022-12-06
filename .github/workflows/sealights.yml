@@ -1,0 +1,24 @@
+name: sealights
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code.
+      uses: actions/checkout@v2
+      
+    - name: make new file
+      run: |
+        mkdir sealights
+        cd sealights
+      
+    - name: download sealights
+      run: |
+        iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri https://agents.sealights.co/dotnetcore/sealights-dotnet-agent-latest.zip
+        Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath sl-dotnet-agent -Force
+        Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
