@@ -35,10 +35,10 @@ jobs:
         Write-Output "Token $($SLAGENTTOKEN.SubString($SLAGENTTOKEN.Length-5))"
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Write-Output "Download the Sealights DotNet agent version set in settings..." 
-#         $agentversion = ((iwr -Uri https://$($sldomain)/api/v2/agents/dotnet/recommended -Headers @{'Accept' = 'application/json'; 'Authorization' = "Bearer $($slagenttoken)"}).Content | ConvertFrom-Json | Select-Object agent).agent.version
-#         iwr -OutFile sealights-dotnet-agent.zip -Uri http://agents.sealights.co/SL.DotNet/SL.DotNet-$($agentversion).zip
-#         Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath SL.DotNet -Force
-#         Write-Output "Sealights agent version used is:$(Get-Content .\SL.DotNet\version.txt)"
+        $agentversion = ((iwr -Uri https://$($sldomain)/api/v2/agents/dotnet/recommended -Headers @{'Accept' = 'application/json'; 'Authorization' = "Bearer $($slagenttoken)"}).Content | ConvertFrom-Json | Select-Object agent).agent.version
+        iwr -OutFile sealights-dotnet-agent.zip -Uri http://agents.sealights.co/SL.DotNet/SL.DotNet-$($agentversion).zip
+        Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath SL.DotNet -Force
+        Write-Output "Sealights agent version used is:$(Get-Content .\SL.DotNet\version.txt)"
 #         #Retrieve the same name of target branch as reported in Sealights Dashboard by removing the uncecessary prefix
 #         $PR_NUMBER="$(system.pullRequest.pullRequestNumber)"
 #         $REPO_URL="$(System.PullRequest.SourceRepositoryURI)"
