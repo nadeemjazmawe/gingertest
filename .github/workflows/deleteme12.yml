@@ -38,7 +38,7 @@ jobs:
         
         Write-Output "PR_TARGET_BRANCH  = ${{steps.PR.outputs.pr_merged_at}}"
         
-        Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
+        Write-Output "PR_LAST_COMMIT  = ${{git log -1 --format=%H}}"
         
         Write-Output "PR = ${{github.event_name}}"
         
