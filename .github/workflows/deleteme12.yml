@@ -32,7 +32,7 @@ jobs:
         
         Write-Output "PR_NUMBER = ${prNumber}"
         
-        Write-Output "REPO_URL  = ${{prUrl}}"
+        Write-Output "REPO_URL  = ${{steps.PR.outputs.pr_url}}"
         
         Write-Output "PR_TARGET_BRANCH  = ${{}}"
         
