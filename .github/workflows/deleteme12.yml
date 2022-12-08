@@ -26,7 +26,7 @@ jobs:
         
     - name: githun workflow variable context
       run: |
-        echo ${{github.base_ref}}
+        Write-Output "PR: ${{github.base_ref}}"
         dir
   #      $PR_NUMBER="$(system.pullRequest.pullRequestNumber)" => github.base_ref
   #      $REPO_URL="$(System.PullRequest.SourceRepositoryURI)"
