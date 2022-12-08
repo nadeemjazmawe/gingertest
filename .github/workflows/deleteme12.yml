@@ -1,0 +1,36 @@
+name: hahahahaha
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+#     - name: Checkout code.
+#       uses: actions/checkout@v2
+      
+#     - name: make new file
+#       run: |
+#         mkdir sealights
+#         cd sealights
+#       
+#     - name: download sealights
+#       run: |
+#        iwr -OutFile sealights-dotnet-agent.zip -UseBasicParsing -Uri https://agents.sealights.co/dotnetcore/sealights-dotnet-agent-latest.zip
+#        Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath sl-dotnet-agent -Force
+#        Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
+        
+        
+    - name: githun workflow variable context
+      run: |
+        echo ${{github.base_ref}}
+        dir
+  #      $PR_NUMBER="$(system.pullRequest.pullRequestNumber)" => github.base_ref
+  #      $REPO_URL="$(System.PullRequest.SourceRepositoryURI)"
+#        $PR_TARGET_BRANCH="Releases/" + "$(System.PullRequest.TargetBranch)".Replace("refs/heads/","")
+#        #Retrieve the last Commit Hash from the PR branch and not the one from the ADO local Merge (via git log history)
+#        $PR_LAST_COMMIT=$(git log -2 --format=%H).Split(" ")[1]       
+ 
