@@ -32,10 +32,6 @@ jobs:
         
     - name: github workflow variable context
       run: |
-        $PR_NUM="$(system.pullRequest.pullRequestNumber)" 
-
-        Write-Output "Build Reason =  ${{PR_NUM}}"
-        
         Write-Output "PR_NUMBER = ${steps.PR.outputs.number}"
         
         Write-Output "REPO_URL  = ${{steps.PR.outputs.pr_url}}"
