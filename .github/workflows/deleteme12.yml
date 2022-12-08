@@ -28,17 +28,12 @@ jobs:
       run: |
         Write-Output "Build Reason =  ${{github.event_name}}"
         
-#      $PR_NUMBER="$(system.pullRequest.pullRequestNumber)" => github.base_ref
         Write-Output "PR = ${{github.base_ref}}"
         
-#      $REPO_URL="$(System.PullRequest.SourceRepositoryURI)"
         Write-Output "PR = ${{github.repositoryUrl	}}"
         
-#        $PR_TARGET_BRANCH="Releases/" + "$(System.PullRequest.TargetBranch)".Replace("refs/heads/","")
         Write-Output "PR = ${{github.base_ref}}"
         
-#        #Retrieve the last Commit Hash from the PR branch and not the one from the ADO local Merge (via git log history)
         Write-Output "PR = ${{github.base_ref}}"
         
-#        $PR_LAST_COMMIT=$(git log -2 --format=%H).Split(" ")[1]       
         Write-Output "PR = ${{github.base_ref}}"
