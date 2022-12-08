@@ -28,13 +28,15 @@ jobs:
         
     - name: github workflow variable context
       run: |
-        Write-Output "Build Reason =  ${{github.event_name}}"
+        $PR_NUMBER="$(system.pullRequest.pullRequestNumber)" => github.base_ref
+
+        Write-Output "Build Reason =  ${{PR_NUMBER}}"
         
-        Write-Output "PR_NUMBER = ${github.event_name}"
+        Write-Output "PR_NUMBER = ${steps.PR.outputs.number}"
         
         Write-Output "REPO_URL  = ${{steps.PR.outputs.pr_url}}"
         
-        Write-Output "PR_TARGET_BRANCH  = ${{github.event_name}}"
+        Write-Output "PR_TARGET_BRANCH  = ${{steps.PR.outputs.pr_merged_at}}"
         
         Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
         
