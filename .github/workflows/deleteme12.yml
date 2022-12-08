@@ -30,15 +30,15 @@ jobs:
       run: |
         Write-Output "Build Reason =  ${{github.event_name}}"
         
-        Write-Output "PR_NUMBER = ${prNumber}"
+        Write-Output "PR_NUMBER = ${github.event_name}"
         
         Write-Output "REPO_URL  = ${{steps.PR.outputs.pr_url}}"
         
-        Write-Output "PR_TARGET_BRANCH  = ${{}}"
+        Write-Output "PR_TARGET_BRANCH  = ${{github.event_name}}"
         
         Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
         
-        Write-Output "PR = ${{prNumber}}"
+        Write-Output "PR = ${{github.event_name}}"
         
 
         
