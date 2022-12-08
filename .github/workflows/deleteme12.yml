@@ -23,8 +23,8 @@ jobs:
 #        Expand-Archive .\sealights-dotnet-agent.zip -DestinationPath sl-dotnet-agent -Force
 #        Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
         
-#     - uses: 8BitJonny/gh-get-current-pr@2.1.3
-#       id: PR
+    - uses: 8BitJonny/gh-get-current-pr@2.1.3
+      id: PR
         
     - name: github workflow variable context
       run: |
