@@ -32,13 +32,13 @@ jobs:
         
         Write-Output "PR_NUMBER = ${prNumber}"
         
-        Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
+        Write-Output "REPO_URL  = ${{prUrl}}"
         
         Write-Output "PR_TARGET_BRANCH  = ${{steps.PR.outputs.pr_merged_at}}"
         
         Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
         
-        Write-Output "PR = ${{github.base_ref}}"
+        Write-Output "PR = ${{prNumber}}"
         
 
         
