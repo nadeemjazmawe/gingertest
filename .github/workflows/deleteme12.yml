@@ -28,9 +28,9 @@ jobs:
         
     - name: github workflow variable context
       run: |
-        $PR_NUMBER="$(system.pullRequest.pullRequestNumber)" => github.base_ref
+        $PR_NUM="$(system.pullRequest.pullRequestNumber)" 
 
-        Write-Output "Build Reason =  ${{PR_NUMBER}}"
+        Write-Output "Build Reason =  ${{PR_NUM}}"
         
         Write-Output "PR_NUMBER = ${steps.PR.outputs.number}"
         
