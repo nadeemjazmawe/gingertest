@@ -9,8 +9,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
-#     - name: Checkout code.
-#       uses: actions/checkout@v2
+    - name: Checkout code.
+      uses: actions/checkout@v2
       
 #     - name: make new file
 #       run: |
@@ -24,9 +24,10 @@ jobs:
 #        Write-Output "[Sealights] .NetCore Agent version is: $(Get-Content .\sl-dotnet-agent\version.txt)"
         
         
-    - name: githun workflow variable context
+    - name: github workflow variable context
       run: |
-        Write-Output "PR: ${{github.base_ref}}"
+        Write-Output "Build Reason =  ${{github.event_name}}"
+        Write-Output "PR = ${{github.base_ref}}"
         dir
   #      $PR_NUMBER="$(system.pullRequest.pullRequestNumber)" => github.base_ref
   #      $REPO_URL="$(System.PullRequest.SourceRepositoryURI)"
