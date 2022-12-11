@@ -12,23 +12,55 @@ jobs:
     - name: Checkout code.
       uses: actions/checkout@v2
           
-
     - name: 'printing file - GingerConsoleTest.dll'
       if: success() || failure()  
       run: | 
-        cd
+        cd D:\
+        dir
+      
     - name: 'printing file - GingerConsoleTest.dll'
       if: success() || failure()  
       run: | 
-        chdir
-    - name: 'printing file - GingerConsoleTest.dll'
-      if: success() || failure()  
-      run: | 
-        Get-Location
+        cd D:\a
+        dir
         
-    - name: Run tests for Ginger .NetFramework *Test Dlls
-      if: success() || failure()        # run this step even if previous step failed
-      run: powershell -file "TestDotNetFramework.ps1"
+    - name: 'printing file - GingerConsoleTest.dll'
+      if: success() || failure()  
+      run: | 
+        cd D:\a\1
+        dir
+        
+    - name: 'printing file - GingerConsoleTest.dll'
+      if: success() || failure()  
+      run: | 
+        cd D:\a\1\a
+        dir
+        
+        
+    - name: 'printing file - GingerConsoleTest.dll'
+      if: success() || failure()  
+      run: | 
+        mkdir D:\a\1\a
+        cd D:\a\1\a
+        dir
+        
+
+#     - name: 'printing file - GingerConsoleTest.dll'
+#       if: success() || failure()  
+#       run: | 
+#         cd
+#     - name: 'printing file - GingerConsoleTest.dll'
+#       if: success() || failure()  
+#       run: | 
+#         chdir
+#     - name: 'printing file - GingerConsoleTest.dll'
+#       if: success() || failure()  
+#       run: | 
+#         Get-Location
+        
+#     - name: Run tests for Ginger .NetFramework *Test Dlls
+#       if: success() || failure()        # run this step even if previous step failed
+#       run: powershell -file "TestDotNetFramework.ps1"
       
 #     - name: 'printing file - GingerConsoleTest.dll'
 #       if: success() || failure()  
