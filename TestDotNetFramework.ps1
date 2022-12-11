@@ -7,6 +7,7 @@ cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensi
 $exitcode=0
 
 mkdir D:\a\gingertest\gingertest\TestResults\DotNetFramework
+mkdir D:\a\1\a\
 
 ./vstest.console.exe "D:\a\gingertest\gingertest\Ginger\GingerCoreTest\bin\Release\net6.0-windows\GingerCoreTest.dll" /Logger:trx /ResultsDirectory:D:\a\gingertest\gingertest\TestResults\DotNetFramework
 Write-Host ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> LastExitCode: " $LastExitCode
@@ -29,10 +30,20 @@ Write-Host "-------------------------------------------------------------"
 cd D:\a\gingertest\gingertest\TestResults
 dir
 
+
+Write-Host "-------------------------------------------------------------"
+Write-Host "-                    print                 -"
+Write-Host "-------------------------------------------------------------"
+dir D:\a\1\
+
+
 Write-Host "-------------------------------------------------------------"
 Write-Host "-                    Copy Test Artifacts                    -"
 Write-Host "-------------------------------------------------------------"
 New-Item -Path "D:\a\1\a" -Name "TestCompleted.txt" -ItemType "file" -Value "Test Completed Artifacts"
+
+
+
 
 Compress-Archive -Path 'D:\a\gingertest\gingertest\Ginger\GingerUtilsTest\bin\Release\net6.0\TestArtifacts' -DestinationPath 'D:\a\1\a\GingerUtilsTestArtifacts'
 Compress-Archive -Path 'D:\a\gingertest\gingertest\Ginger\GingerCoreCommonTest\bin\Release\net6.0\TestArtifacts' -DestinationPath 'D:\a\1\a\GingerCoreCommonTestArtifacts'
