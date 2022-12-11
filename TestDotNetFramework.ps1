@@ -42,7 +42,22 @@ Write-Host "-                    Copy Test Artifacts                    -"
 Write-Host "-------------------------------------------------------------"
 New-Item -Path "D:\a\1\a" -Name "TestCompleted.txt" -ItemType "file" -Value "Test Completed Artifacts"
 
-
+Write-Host "-------------------------------------------------------------"
+Write-Host "-                    print  path     1          -"
+Write-Host "-------------------------------------------------------------"
+D:\a\gingertest\gingertest\Ginger\GingerUtilsTest
+Write-Host "-------------------------------------------------------------"
+Write-Host "-                    print  path     2          -"
+Write-Host "-------------------------------------------------------------"
+D:\a\gingertest\gingertest\Ginger\GingerUtilsTest\bin
+Write-Host "-------------------------------------------------------------"
+Write-Host "-                    print  path     3          -"
+Write-Host "-------------------------------------------------------------"
+D:\a\gingertest\gingertest\Ginger\GingerUtilsTest\bin\Release
+Write-Host "-------------------------------------------------------------"
+Write-Host "-                    print  path     4          -"
+Write-Host "-------------------------------------------------------------"
+D:\a\gingertest\gingertest\Ginger\GingerUtilsTest\bin\Release\net6.0\
 
 
 Compress-Archive -Path 'D:\a\gingertest\gingertest\Ginger\GingerUtilsTest\bin\Release\net6.0\TestArtifacts' -DestinationPath 'D:\a\1\a\GingerUtilsTestArtifacts'
