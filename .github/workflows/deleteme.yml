@@ -40,7 +40,7 @@ jobs:
     - name: 'printing file - GingerConsoleTest.dll'
       if: success() || failure()  
       run: | 
-        mkdir D:\a\1\a
+        mkdir -p D:\a\1\a
         cd D:\a\1\a
         dir
         
