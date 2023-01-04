@@ -26,7 +26,13 @@ jobs:
     - name: make new file
       run: |
         Write-Output "Build Reason =  ${{github.event_name}}"
-        Write-Output "PR_NUMBER = ${prNumber}" 
-        Write-Output "REPO_URL = ${prUrl}"
-        Write-Output "PR_TARGET_BRANCH = ${{ steps.PR.outputs.pr_merged_at }}"
-        Write-Output "PR_LAST_COMMIT = ${{}}"
+        
+        Write-Output "PR = ${{github.base_ref}}"
+        
+        Write-Output "PR = ${{github.repositoryUrl	}}"
+        
+        Write-Output "PR = ${{github.base_ref}}"
+        
+        Write-Output "PR = ${{github.base_ref}}"
+        
+        Write-Output "PR = ${{github.base_ref}}
