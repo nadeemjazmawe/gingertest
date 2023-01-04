@@ -32,7 +32,7 @@ jobs:
         
     - name: github workflow variable context
       run: |
-        Write-Output "PR_NUMBER = ${GITHUB_PATH}"
+        Write-Output "PR_NUMBER = ${{GITHUB_PATH}}"
         
         Write-Output "REPO_URL  = ${{GITHUB_PATH}}"
         
