@@ -71,11 +71,21 @@ jobs:
           Write-Output "Sealights agent version used is:$(Get-Content .\SL.DotNet\version.txt)"
           #Retrieve the same name of target branch as reported in Sealights Dashboard by removing the uncecessary prefix
 
+
+          Write-Output "Print ***"
+
+          dir
+          
+          
           Write-Output "`n*** Create PR BSID ***"
           .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionIdFile SealightsBuildSessionId.txt --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
+          
+          Write-Output "Print ***"
+
+          dir
 
           Write-Output "`n*** Prepare for MSBuild ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionIdFile SealightsBuildSessionId.txt --workspacePath .\Ginger --baseDir . --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
+          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionIdFile .\SealightsBuildSessionId.txt --workspacePath .\Ginger --baseDir . --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
 
 
 
