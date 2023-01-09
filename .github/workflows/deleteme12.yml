@@ -10,8 +10,8 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
-    #runs-on: ubuntu-latest
+    #runs-on: windows-latest
+    runs-on: ubuntu-latest
 
         
     steps:
@@ -54,7 +54,7 @@ jobs:
           echo "PR_NUMBER = ${PR_NUMBER}"
           echo "PR_TARGET_BRANCH  = ${PR_TARGET_BRANCH}"
           echo "PR_LAST_COMMIT  = ${PR_LAST_COMMIT}"
-          echo "REPO_URL  = ${REPO_URL}"
+          echo "REPO_URL  = ${GITHUB_GRAPHQL_URL}"
           echo "Domail = ${SLDOMAIN}"
 
 
