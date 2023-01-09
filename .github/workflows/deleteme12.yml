@@ -45,20 +45,15 @@ jobs:
         env:
           SLDOMAIN: amdocs.sealights.com
         run: |        
-          Write-Output "Build Reason =  ${{github.event_name}}"
-
-          Write-Output "PR_NUMBER = ${{github.event.pull_request.number}}"
-
-          Write-Output "PR_TARGET_BRANCH  = ${{github.head_ref}}"
-
-          Write-Output "PR_LAST_COMMIT  = ${{ github.event.pull_request.head.sha }}"
-
-          Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
-
-          Write-Output "Domail = ${SLDOMAIN}"
+          echo "Build Reason =  ${{github.event_name}}"
+          echo "PR_NUMBER = ${{github.event.pull_request.number}}"
+          echo "PR_TARGET_BRANCH  = ${{github.head_ref}}"
+          echo "PR_LAST_COMMIT  = ${{ github.event.pull_request.head.sha }}"
+          echo "REPO_URL  = ${{github.repositoryUrl	}}"
+          echo "Domail = ${SLDOMAIN}"
 
 
 
-          Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
+          echo "PR_LAST_COMMIT  = ${{github.base_ref}}"
 
-          Write-Output "PR = ${{github.base_ref}}"
+          echo "PR = ${{github.base_ref}}"
