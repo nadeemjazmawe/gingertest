@@ -10,7 +10,9 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    #runs-on: windows-latest
+    runs-on: ubuntu-latest
+
         
     steps:
       - name: Checkout code.
@@ -54,7 +56,6 @@ jobs:
           Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
 
           Write-Output "Domail = ${SLDOMAIN}"
-          echo "Domail: ${SLDOMAIN}"
 
 
 
