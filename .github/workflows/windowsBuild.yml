@@ -39,7 +39,8 @@ jobs:
 # Restore Ginger solution NuGet packages
 # ------------------------------------------------------------------------------------------------------
       - name: Restore nuget packages
-        run: nuget restore ./Ginger/Ginger.sln
+        run: dir
+        #nuget restore ./Ginger/Ginger.sln
 
 
 
