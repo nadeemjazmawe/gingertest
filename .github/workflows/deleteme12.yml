@@ -36,7 +36,7 @@ jobs:
         Write-Output "Build Reason =  ${{github.event_name}}"
         
 
-        Write-Output "PR_NUMBER = ${{GITHUB_PR_NUMBER}}"
+        Write-Output "PR_NUMBER = ${GITHUB_PR_NUMBER}"
         Write-Output "PR_NUMBER = ${{github.event.pull_request.number}}"
 
         
