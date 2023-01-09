@@ -37,7 +37,7 @@ jobs:
         
         $GITHUB_PR1_NUMBER=${github.event.pull_request.number}
         echo "From echoo: ${GITHUB_PR1_NUMBER}"
-        echo %GITHUB_PR1_NUMBER
+        echo %GITHUB_PR1_NUMBER%
         echo "done"
 
         Write-Output "PR_NUMBER : ${GITHUB_PR_NUMBER}"
