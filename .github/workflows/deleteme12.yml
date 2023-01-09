@@ -1,5 +1,8 @@
 name: hahahahaha
 on:
+  pull_request:
+    branches: 
+      - master
   workflow_dispatch:
 
 jobs:
@@ -24,7 +27,12 @@ jobs:
       id: PR
         
     - name: github workflow variable context
+      env:
+        GITHUB_PR_NUMBER: ${{github.event.pull_request.number}}
       run: |
+        
+        echo "$GITHUB_PR_NUMBER"
+        
         Write-Output "Build Reason =  ${{github.event_name}}"
         
         Write-Output "PR_NUMBER = ${prNumber}"
