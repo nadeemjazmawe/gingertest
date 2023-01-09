@@ -44,12 +44,17 @@ jobs:
       - name: github workflow variable context
         env:
           SLDOMAIN: amdocs.sealights.com
+          PR_NUMBER: ${{github.event.pull_request.number}}
+          PR_TARGET_BRANCH: ${{github.head_ref}}
+          PR_LAST_COMMIT: ${{ github.event.pull_request.head.sha }}
+          REPO_URL: ${{github.repositoryUrl	}}
+          
         run: |        
           echo "Build Reason =  ${{github.event_name}}"
-          echo "PR_NUMBER = ${{github.event.pull_request.number}}"
-          echo "PR_TARGET_BRANCH  = ${{github.head_ref}}"
-          echo "PR_LAST_COMMIT  = ${{ github.event.pull_request.head.sha }}"
-          echo "REPO_URL  = ${{github.repositoryUrl	}}"
+          echo "PR_NUMBER = ${PR_NUMBER}"
+          echo "PR_TARGET_BRANCH  = ${PR_TARGET_BRANCH}"
+          echo "PR_LAST_COMMIT  = ${PR_LAST_COMMIT}"
+          echo "REPO_URL  = ${REPO_URL}"
           echo "Domail = ${SLDOMAIN}"
 
 
