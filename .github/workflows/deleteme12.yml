@@ -44,7 +44,7 @@ jobs:
         
         Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
         
-        Write-Output "Domail = ${{sldomain}}"
+        Write-Output "Domail = ${sldomain}"
         
 
         
