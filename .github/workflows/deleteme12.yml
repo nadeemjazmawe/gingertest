@@ -34,7 +34,7 @@ jobs:
         GITHUB_PR_NUMBER: ${{github.event.pull_request.number}}
       run: |
         
-        echo "$GITHUB_PR_NUMBER"
+        echo "${GITHUB_PR_NUMBER}"
         
         Write-Output "Build Reason =  ${{github.event_name}}"
         
