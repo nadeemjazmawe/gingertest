@@ -35,11 +35,14 @@ jobs:
         Write-Output "Build Reason =  ${{github.event_name}}"
         
         Write-Output "PR_NUMBER = ${{github.event.pull_request.number}}"
-
+        
+        Write-Output "PR_TARGET_BRANCH  = ${{$GITHUB_HEAD_REF}}"
+        
+        
         
         Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
         
-        Write-Output "PR_TARGET_BRANCH  = ${{steps.PR.outputs.pr_merged_at}}"
+
         
         Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
         
