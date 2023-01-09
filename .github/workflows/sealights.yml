@@ -58,7 +58,7 @@ jobs:
           
           
           Write-Output "`n*** Create PR BSID ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionIdFile .\SealightsBuildSessionId.txt --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
+          .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionIdFile D:\a\gingertest\gingertest\SealightsBuildSessionId.txt --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
           
           Write-Output "Print ***"
 
