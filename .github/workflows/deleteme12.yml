@@ -36,7 +36,8 @@ jobs:
         
         Write-Output "PR_NUMBER = ${{github.event.pull_request.number}}"
         
-        Write-Output "PR_TARGET_BRANCH  = ${{$GITHUB_HEAD_REF}}"
+        Write-Output "PR_TARGET_BRANCH  = ${{GITHUB_HEAD_REF}}"
+        Write-Output "PR_TARGET_BRANCH  = ${{github.head_ref}}"
         
         
         
