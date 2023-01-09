@@ -11,9 +11,10 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+        
     steps:
-    - name: Checkout code.
-      uses: actions/checkout@v2
+      - name: Checkout code.
+        uses: actions/checkout@v2
       
 #     - name: make new file
 #       run: |
@@ -30,31 +31,33 @@ jobs:
 #       id: PR
 
     
-    - name: Log ENV Variables 
-      env: 
-        STEP_ENV: Available to only this step 
-      run: |
-        echo "STEP_ENV: ${STEP_ENV}"
-        
-    - name: github workflow variable context
-      env:
-        SLDOMAIN: amdocs.sealights.com
-      run: |        
-        Write-Output "Build Reason =  ${{github.event_name}}"
-        
-        Write-Output "PR_NUMBER = ${{github.event.pull_request.number}}"
-        
-        Write-Output "PR_TARGET_BRANCH  = ${{github.head_ref}}"
-        
-        Write-Output "PR_LAST_COMMIT  = ${{ github.event.pull_request.head.sha }}"
-        
-        Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
-        
-        Write-Output "Domail = ${SLDOMAIN}"
-        echo "Domail: ${SLDOMAIN}"
-        
+      - name: Log ENV Variables 
+        env: 
+          STEP_ENV: Available to only this step
 
-        
-        Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
-        
-        Write-Output "PR = ${{github.base_ref}}"
+        run: |
+          echo "STEP_ENV: ${STEP_ENV}"
+
+
+      - name: github workflow variable context
+        env:
+          SLDOMAIN: amdocs.sealights.com
+        run: |        
+          Write-Output "Build Reason =  ${{github.event_name}}"
+
+          Write-Output "PR_NUMBER = ${{github.event.pull_request.number}}"
+
+          Write-Output "PR_TARGET_BRANCH  = ${{github.head_ref}}"
+
+          Write-Output "PR_LAST_COMMIT  = ${{ github.event.pull_request.head.sha }}"
+
+          Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
+
+          Write-Output "Domail = ${SLDOMAIN}"
+          echo "Domail: ${SLDOMAIN}"
+
+
+
+          Write-Output "PR_LAST_COMMIT  = ${{github.base_ref}}"
+
+          Write-Output "PR = ${{github.base_ref}}"
