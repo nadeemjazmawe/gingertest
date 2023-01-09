@@ -66,6 +66,6 @@ jobs:
           dir
 
           Write-Output "`n*** Prepare for MSBuild ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionIdFile .\SealightsBuildSessionId.txt --workspacePath .\Ginger --baseDir . --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
+          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionIdFile D:\a\gingertest\gingertest\SealightsBuildSessionId.txt --workspacePath D:\a\gingertest\gingertest\Ginger --baseDir D:\a\gingertest\gingertest --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
 
 
