@@ -30,7 +30,9 @@ jobs:
       id: PR
         
     - name: github workflow variable context
-
+      env:
+        sldomain: amdocs.sealights.com
+        
       run: |        
         Write-Output "Build Reason =  ${{github.event_name}}"
         
@@ -38,9 +40,11 @@ jobs:
         
         Write-Output "PR_TARGET_BRANCH  = ${{github.head_ref}}"
         
-        
+        Write-Output "PR_LAST_COMMIT  = ${{ github.event.pull_request.head.sha }}"
         
         Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
+        
+        Write-Output "Domail = ${{sldomain}}"
         
 
         
