@@ -1,6 +1,10 @@
 name: sealights
 
 on:
+  pull_request:
+    branches: 
+      - master
+      
   workflow_dispatch:
 
 jobs:
@@ -45,11 +49,17 @@ jobs:
   #      $REPO_URL="$(System.PullRequest.SourceRepositoryURI)"
 #        $PR_TARGET_BRANCH="Releases/" + "$(System.PullRequest.TargetBranch)".Replace("refs/heads/","")
 #        #Retrieve the last Commit Hash from the PR branch and not the one from the ADO local Merge (via git log history)
-#        $PR_LAST_COMMIT=$(git log -2 --format=%H).Split(" ")[1]       
+#        $PR_LAST_COMMIT=$(git log -2 --format=%H).Split(" ")[1]
+
+
+
  #       Write-Output "`n*** Create PR BSID ***"
 #         .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionIdFile $(Build.ArtifactStagingDirectory)\SealightsBuildSessionId.txt --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
+
 #         Write-Output "`n*** Prepare for MSBuild ***"
 #         .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionIdFile $(Build.ArtifactStagingDirectory)\SealightsBuildSessionId.txt --workspacePath $(Build.Repository.LocalPath)\Ginger --baseDir  $(Build.Repository.LocalPath) --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
+
+
 
 #         $sldomain="mycompany.sealights.co" #Update with your customer domain
 #         $slToken="$(Get-Content sltoken.txt)" #Prefer a credential Environment variable for the token
