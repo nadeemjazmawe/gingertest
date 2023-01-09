@@ -31,7 +31,7 @@ jobs:
         
     - name: github workflow variable context
       env:
-        sldomain: amdocs.sealights.com
+        SLDOMAIN: amdocs.sealights.com
         
       run: |        
         Write-Output "Build Reason =  ${{github.event_name}}"
@@ -44,7 +44,7 @@ jobs:
         
         Write-Output "REPO_URL  = ${{github.repositoryUrl	}}"
         
-        Write-Output "Domail = ${sldomain}"
+        Write-Output "Domail = ${SLDOMAIN}"
         
 
         
