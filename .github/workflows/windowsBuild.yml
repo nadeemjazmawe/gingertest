@@ -111,7 +111,7 @@ jobs:
         run: |
           cd Ginger
           dir
-          .\SL.DotNet\x64\SL.DotNet.exe startExecution --buildSessionId 1673245202505 --token $($slagenttoken) --logEnabled true --logAppendConsole true --testStage "Unit Tests"
+          D:\a\gingertest\gingertest\SL.DotNet\x64\SL.DotNet.exe startExecution --buildSessionId 1673245202505 --token $($slagenttoken) --logEnabled true --logAppendConsole true --testStage "Unit Tests"
           dir
           
       - name: Starting Background test listener
