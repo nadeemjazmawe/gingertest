@@ -78,7 +78,7 @@ jobs:
           
           
           Write-Output "`n*** Create PR BSID ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionId 1673245202505 --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
+          D:\a\gingertest\gingertest\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionId 1673245202505 --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
           
           Write-Output "Print ***"
 
@@ -111,7 +111,7 @@ jobs:
         run: |
           cd Ginger 
           dir
-          D:\a\SL-dotnet-2.0.1.810\x64\SL.DotNet.exe startExecution --buildSessionId 1673245202505 --token $($slagenttoken) --logEnabled true --logAppendConsole true --testStage "Unit Tests"
+          D:\a\gingertest\gingertest\SL-dotnet-2.0.1.810\x64\SL.DotNet.exe startExecution --buildSessionId 1673245202505 --token $($slagenttoken) --logEnabled true --logAppendConsole true --testStage "Unit Tests"
           dir
           
       - name: Starting Background test listener
