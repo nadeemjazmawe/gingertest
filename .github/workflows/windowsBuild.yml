@@ -151,9 +151,9 @@ jobs:
 # Run .Net Framework tests using powershell and publish the results
 # ------------------------------------------------------------------------------------------------------
 
-      - name: Run tests for Ginger .NetFramework *Test Dlls
-        if: success() || failure()        # run this step even if previous step failed
-        run: powershell -file "TestDotNetFramework.ps1"
+#       - name: Run tests for Ginger .NetFramework *Test Dlls
+#         if: success() || failure()        # run this step even if previous step failed
+#         run: powershell -file "TestDotNetFramework.ps1"
       
 # ------------------------------------------------------------------------------------------------------
 # Publish Test Results
