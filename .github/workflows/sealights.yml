@@ -59,13 +59,13 @@ jobs:
           
           
           Write-Output "`n*** Create PR BSID ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionId 1637907553052 --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
+          .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionId 1673245202505  --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
           
           Write-Output "Print ***"
 
           dir
 
           Write-Output "`n*** Prepare for MSBuild ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionId 1637907553052 --workspacePath D:\a\gingertest\gingertest\Ginger --baseDir D:\a\gingertest\gingertest --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
+          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionId 1673245202505  --workspacePath D:\a\gingertest\gingertest\Ginger --baseDir D:\a\gingertest\gingertest --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
 
 
