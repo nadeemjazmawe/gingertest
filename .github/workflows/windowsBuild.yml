@@ -76,7 +76,7 @@ jobs:
           D:\a\gingertest\gingertest\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionId 1673245202505 --token $slagenttoken --logEnabled true --logAppendConsole true --ignoreCertificateErrors true     
 
           Write-Output "`n*** Prepare for MSBuild ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionId 1673245202505 --workspacePath .\Ginger --baseDir . --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $SL_TOKEN --scm git --scmProvider vsts
+          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionId 1673245202505 --workspacePath .\Ginger --baseDir . --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $slagenttoken --scm git --scmProvider vsts
 
 
 # ------------------------------------------------------------------------------------------------------
