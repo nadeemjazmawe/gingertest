@@ -44,9 +44,9 @@ jobs:
 
 
 # ------------------------------------------------------------------------------------------------------
-# SeaLight
+# SeaLight - Downloading the .NET agent files && Scanning a build using MSBuild
 # ---------------------------------------------------------------------------------------------------
-      - name: download sealights
+      - name: Download Sealights .Net agent 
         env:
         
           SLDOMAIN: amdocs.sealights.co
@@ -78,14 +78,14 @@ jobs:
           
           
           Write-Output "`n*** Create PR BSID ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionIdFile SealightsBuildSessionId.txt --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
+          .\SL.DotNet\x64\SL.DotNet.exe prConfig --appName $APP_NAME --pullRequestNumber $PR_NUMBER --targetBranch $PR_TARGET_BRANCH --latestCommit $PR_LAST_COMMIT --repositoryUrl $REPO_URL --includeNamespace $APP_NAMESPACE --buildSessionId 1673245202505 --token $($slagenttoken) --logEnabled true --logAppendConsole true --ignoreCertificateErrors true
           
           Write-Output "Print ***"
 
           dir
 
           Write-Output "`n*** Prepare for MSBuild ***"
-          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionIdFile .\SealightsBuildSessionId.txt --workspacePath .\Ginger --baseDir . --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
+          .\SL.DotNet\x64\SL.DotNet.exe prepareForMsBuild --buildSessionId 1673245202505 --workspacePath .\Ginger --baseDir . --ignoreGeneratedCode true --debugMode true --logEnabled true --logAppendConsole true --ignoreCertificateErrors true --token $($slagenttoken) --scm git --scmProvider vsts
 
 
 
@@ -98,8 +98,21 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
 
 
-      - name: Build
+      - name: Build Ginger Solution
         run: msbuild ./Ginger/Ginger.sln /p:DebugSymbols=true /p:DebugType=full /p:Configuration=Release
+        
+        
+# ------------------------------------------------------------------------------------------------------
+# SeaLights- Starting test stage && Starting Background test listener
+# ------------------------------------------------------------------------------------------------------
+
+      - name: Testing GingerUtilsTest
+#         run: .\SL.DotNet\x64\SL.DotNet.exe startExecution --buildSessionId 1637907553052 --testStage "Functional Tests"
+        run: |
+          .\SL.DotNet\x64\SL.DotNet.exe startExecution --token $($slagenttoken) --buildSessionId 1673245202505 --logEnabled true --logAppendConsole true --testStage "Unit Tests"
+          .\SL.DotNet\x64\SL.DotNet.exe startBackgroundTestListener --token $($slagenttoken) --buildSessionId 1673245202505 --logEnabled true --logAppendConsole true --testListenerSessionKey 1673245202505 --testStage "Unit Tests"
+
+
         
 # ------------------------------------------------------------------------------------------------------
 # Start Testing 
@@ -127,12 +140,7 @@ jobs:
       - name: 'Testing GingerAutoPilotTest'
         if: success() || failure()  
         run: dotnet test  Ginger/GingerAutoPilotTest --configuration Release --logger trx --verbosity=normal     
-
-#       - name: Test
-#         run: dotnet test --no-build --verbosity normal
-        
-        
-        
+              
         
 # ------------------------------------------------------------------------------------------------------
 # Run .Net Framework tests using powershell and publish the results
@@ -155,13 +163,23 @@ jobs:
           
           
 # ------------------------------------------------------------------------------------------------------
-# Stop Sealight
+# Sealight - Stop Background test listener && Ending a test stage && Upload report files
 # ------------------------------------------------------------------------------------------------------        
 #       - task: EndTestExecution@2
 #         inputs:
 #           sealightsToken: "$(SLAGENTTOKEN)"
 #           SealightsBuildSessionId : $(Build.ArtifactStagingDirectory)\SealightsBuildSessionId.txt 
-      - name: Test Report
-        run: Msbuild SlnFolders.sln /t:rebuild
+#       - name: Test Report
+#         run: Msbuild SlnFolders.sln /t:rebuild
+      - name: EndTestExecution
+        run: |
+          D:\a\SL-dotnet-2.0.1.810\x64\SL.DotNet.exe stopBackgroundTestListener --token $($slagenttoken) --buildSessionId 1673245202505 --logEnabled true --logAppendConsole true --testListenerSessionKey 1673245202505
+          D:\a\SL-dotnet-2.0.1.810\x64\SL.DotNet.exe endExecution --token $($slagenttoken) --buildSessionId 1673245202505 --logEnabled true --logAppendConsole true --testStage "Unit Tests"
+          D:\a\SL-dotnet-2.0.1.810\x64\SL.DotNet.exe uploadTestReport --token $($slagenttoken) --buildSessionId 1673245202505 --logEnabled true --logAppendConsole true --testStage "Unit Tests" 
+          D:\a\SL-dotnet-2.0.1.810\x64\SL.DotNet.exe uploadTestReport --token $($slagenttoken) --buildSessionId 1673245202505 --logEnabled true --logAppendConsole true --testStage "Unit Tests" 
+
+
+
+
           
           
